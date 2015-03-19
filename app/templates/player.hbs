@@ -1,0 +1,25 @@
+
+<!--<h2 class="{{!if isCollapsed 'navbar-collapsed' 'disabled'}}">d</h2>-->
+
+<div class="navbar-stick-left ">
+    {{#if currentTrack}}
+        <img class="track-image" src={{ formattedArtwork }} />
+    {{/if}}
+
+    {{soundcloud-player track=currentTrack sound=currentTrackObject position=currentTrackPosition isPlaying=isPlaying isBuffering=isBuffering}}
+
+    <div class="tracks-list">
+        <ul class="list-unstyled">
+            {{#each track in sortedTracks}}
+                <li class={{ track.playingTrack:active }}>
+                    <a {{action 'selectTrack' track _view.contentIndex}}>{{track.title}}</a>
+                </li>
+            {{/each}}
+        </ul>
+    </div>
+</div>
+
+
+
+
+
