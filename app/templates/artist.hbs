@@ -1,0 +1,14 @@
+<div class="row">
+    {{#each playlist in sortedPlaylists itemController='playlist'}}
+        {{#if playlist.formattedArtwork}}
+            <div class="col-xs-4">
+                <a {{ action 'setAsPlaylist' playlist }} class="album-list-item">
+                    <img src={{formattedArtwork}} />
+                    <span class="album-title">
+                        {{playlist.title}}
+                    </span>
+                </a>
+            </div>
+        {{/if}}
+    {{/each}}
+</div>

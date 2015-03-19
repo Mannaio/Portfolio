@@ -1,0 +1,38 @@
+$serif-font: "Baskerville Old Face", "Hoefler Text", Garamond, "Times New Roman", serif
+
+html,
+body,
+h1, h2, h3, h4, h5, h6,
+.h1, .h2, .h3, .h4, .h5, .h6
+  font-family: $serif-font
+
+a:hover
+  cursor: pointer
+
+img
+  max-width: 100%
+
+.centered
+  text-align: center
+
+.recommendations p
+  font-size: 18px
+  
+.recommendations ul
+  font-size: 16px
+
+  li a
+    border-bottom: 1px dotted #999
+    
+    &:hover
+      border-bottom: 1px dotted #333
+      text-decoration: none
+
+.loading-spinner
+  font-size: 200px
+  height: 200px
+  left: 50%
+  margin-left: -90px
+  margin-top: 15px
+  position: absolute
+  width: 175px
