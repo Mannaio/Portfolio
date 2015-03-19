@@ -1,7 +1,4 @@
-
-<!--<h2 class="{{!if isCollapsed 'navbar-collapsed' 'disabled'}}">d</h2>-->
-
-<div class="navbar-stick-left ">
+<div class="navbar-stick-left {{if currentTrack 'navbar-collapsed'}}">
     {{#if currentTrack}}
         <img class="track-image" src={{ formattedArtwork }} />
     {{/if}}
