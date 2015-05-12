@@ -10,40 +10,61 @@ var ArtistRoute = Ember.Route.extend({
         });
     },
     model: function(params) {
-        var artist, playlistProxy, self;
+        var artist, favoriteListProxy, self;
         self = this;
         artist = params.artist;
         this.controllerFor('application').set('artistName', artist);
-        playlistProxy = Ember.ArrayProxy.create({
+        favoriteListProxy = Ember.ArrayProxy.create({
             content: []
         });
         return new Ember.RSVP.Promise(function(resolve, reject) {
-            return SC.get("/users/" + artist + "/playlists", function(playlists) {
-                if (playlists.length) {
-                    self.resetStore();
-                    playlists.forEach(function(item, index, arr) {
-                        var playlist;
-                        playlist = self.createPlaylist(item, playlistProxy);
-                        return item.tracks.forEach(function(track, index, arr) {
-                            return track = self.createTrack(track, playlist);
-                        });
+            return SC.get("/users/" + 'mannaio' + "/favorites", {limit: 10}, function(favorites) {
+                if (favorites.length) {
+                    favorites.forEach(function(item, index, arr){
+                        var favorite;
+                        favorite = self.createFavoritelist(item, favoriteListProxy)
                     });
-                    playlists = playlistProxy.get('content');
-                    return resolve(playlists);
-                } else {
-                    return reject(self.errorHandler(artist));
+                    favorites = favoriteListProxy.get('content')
+                    return resolve(favorites);
                 }
             });
         });
     },
-    setupController: function(controller, model) {
-        var track, tracks;
-        this._super(controller, model);
-        tracks = model.get('firstObject').get('tracks');
-        track = tracks.get('firstObject');
-        this.controllerFor('player').set('tracks', tracks).send('selectTrack', track, 0, false);
-        return controller;
-    },
+    // model: function(params) {
+    //     var artist, playlistProxy, self;
+    //     self = this;
+    //     artist = params.artist;
+    //     this.controllerFor('application').set('artistName', artist);
+    //     playlistProxy = Ember.ArrayProxy.create({
+    //         content: []
+    //     });
+    //     return new Ember.RSVP.Promise(function(resolve, reject) {
+    //         return SC.get("/users/" + 'mannaio' + "/playlist", function(playlists) {
+    //             if (playlist.length) {
+    //                 self.resetStore();
+    //                 playlists.forEach(function(item, index, arr) {
+    //                     var playlist;
+    //                     playlist = self.createPlaylist(item, playlistProxy);
+    //                     return item.tracks.forEach(function(track, index, arr) {
+    //                         return track = self.createTrack(track, playlist);
+    //                     });
+    //                 });
+    //                 playlists = playlistProxy.get('content');
+    //                 return resolve(playlists);
+    //             } else {
+    //                 return reject(self.errorHandler(artist));
+    //             }
+    //         });
+    //     });
+    // },
+    // setupController: function(controller, model) {
+    //     var track, tracks;
+    //     this._super(controller, model);
+    //     tracks = model.get('firstObject').get('tracks');
+    //     track = tracks.get('firstObject');
+    //     this.controllerFor('player').set('tracks', tracks).send('selectTrack', track, 0, false);
+    //     return controller;
+    // },
     resetStore: function() {
         this.store.unloadAll('playlist');
         return this.store.unloadAll('track');
@@ -55,6 +76,16 @@ var ArtistRoute = Ember.Route.extend({
             id: playlist.id,
             title: playlist.title,
             artwork_url: playlist.artwork_url
+        });
+        arr.pushObject(record);
+        return record;
+    },
+    createFavoritelist: function(favorite, arr) {
+        var record;
+        record = this.store.createRecord('favorite', {});
+        record.setProperties({
+            id: favorite.id,
+            title: favorite.title,
         });
         arr.pushObject(record);
         return record;

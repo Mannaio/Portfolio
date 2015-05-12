@@ -1,4 +1,4 @@
-<div class="row">
+<!-- <div class="row">
     {{#each playlist in sortedPlaylists itemController='playlist'}}
         {{#if playlist.formattedArtwork}}
             <div class="col-xs-4">
@@ -10,5 +10,15 @@
                 </a>
             </div>
         {{/if}}
+    {{/each}}
+</div> -->
+
+<div class="row">
+    {{#each favorite in sortedFavorites}}
+        <div class="col-xs-4">
+            <a>
+                {{favorite.title}}
+            </a>
+        </div>
     {{/each}}
 </div>
