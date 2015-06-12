@@ -1,13 +1,17 @@
+$susy: ( columns: 16,  global-box-sizing: border-box)
+$medium: ( columns: 16 )
+$bp-medium: max-width 1065px
+$off-canvas-width-2: 150px;
+$off-canvas-width-1: 0px;
+
+
 html,
 body
   background: $white
 
-h1, h2, h3, h4, h5, h6,
-.h1, .h2, .h3, .h4, .h5, .h6
 
 a:hover
   cursor: pointer
-
 img
   max-width: 100%
 
@@ -26,6 +30,35 @@ img
     &:hover
       border-bottom: 1px dotted #333
       text-decoration: none
+
+
+.container
+  @include container
+  height: 98vh
+  -webkit-transition: all 0.5s ease
+  -moz-transition: all 0.5s ease
+  -o-transition: all 0.5s ease
+  transition: all 0.5s ease
+  &.open 
+    transform: translate3d($off-canvas-width-1, 0, 0);
+    @include susy-breakpoint($bp-medium, $medium)
+      transform: translate3d($off-canvas-width-2, 0, 0);
+
+.content 
+  @include span(14 of 16 last)
+  @include susy-breakpoint($bp-medium, $medium)
+    @include span(16 of 16)
+
+.sidebar 
+  @include span(2 of 16 first)
+  position: fixed
+  height: 100%
+  border-right: 5px double $lightgray
+  border-width: 3px
+  @include susy-breakpoint($bp-medium, $medium)
+    left: -150px
+    width: 145px 
+
 
 .loading-spinner
   font-size: 200px

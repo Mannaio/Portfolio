@@ -1,94 +1,59 @@
 $Khula-font: 'Khula', sans-serif;
 
-#sidebar-wrapper
-  z-index: 1000
-  position: fixed
-  left: 170px
-  width: 0
-  height: 100%
-  margin-left: -170px
-  overflow-y: auto
-  background: $white
-  -webkit-transition: all 0.5s ease
-  -moz-transition: all 0.5s ease
-  -o-transition: all 0.5s ease
-  transition: all 0.5s ease
-  border-right: 5px double $lightgray
-  border-width: 3px
-
-#wrapper.toggled #sidebar-wrapper
-  width: 170px
-
-#page-content-wrapper
-  width: 100%
-  position: absolute
-  padding: 15px
-
-#wrapper.toggled #page-content-wrapper
-  position: absolute
-  margin-right: -250px
-
-.sidebar-nav
+.nav__sidebar
   font-family: $Khula-font
   font-weight: 100
   position: absolute
   top: 0
-  width: 169px
   margin: 0
   padding: 0
   list-style: none
-  li
-    text-indent: 20px
-    line-height: 40px
-    a
-      display: block
-      text-decoration: none
-      color: $lightgray
-      font-size: 18px
-      &:hover
-        text-decoration: none
-        color: $darkgray
-        -webkit-transition: all 0.4s ease
-        -moz-transition: all 0.4s ease
-        -o-transition: all 0.4s ease
-        transition: all 0.4s ease
-        background: $lightblue
-      &:active, &:focus
-        text-decoration: none
-  > .sidebar-brand
-    height: 100px
-    line-height: 20px
-    margin-top: 20px
-    text-indent: 20px
-    span
-      display: block
-      text-indent: 0px
-      border: 1px double $lightblue
-      margin-left: 19px
-      padding-left: 4px
-      border-width: 3px
-      font-size: 10px
-      width: 75%
-    a
-      color: $darkgray
-      font-size: 16px
-      &:hover
-        border-right : 0px solid
-        background: none
 
-@media (min-width: 768px)
-  #wrapper
-    padding-left: 250px
-    &.toggled
-      padding-left: 0
-  #sidebar-wrapper
-    width: 170px
-  #wrapper.toggled #sidebar-wrapper
-    width: 0
-  #page-content-wrapper
-    padding: 20px
-    position: relative
-  #wrapper.toggled #page-content-wrapper
-    position: relative
-    margin-right: 0
+.nav 
+  z-index: 1000
+  width: auto
+  height: 100%
+  overflow-y: auto
+  background: $white
+  &__list
+    font-family: $Khula-font
+    font-weight: 100
+    position: absolute
+    top: 0
+    margin: 0
+    padding: 0
+    list-style: none
+  &__link
+    display: block
+    text-decoration: none
+    color: $lightgray
+    font-size: 16px
+    &:hover
+      text-decoration: none
+      color: $darkgray
+    &:active, &:focus
+      text-decoration: none
+  &__list__item
+    text-indent: 10px
+    line-height: 40px
+    &--brand
+      height: 60px
+      line-height: 20px
+      margin-top: 20px
+      text-indent: 5px
+      span
+        display: block
+        margin-left: 5px
+        text-indent: 0
+        background-color: $lightblue
+        font-size: 10px
+      a
+        color: $darkgray
+        font-size: 16px
+        text-decoration: none
+        &:hover
+          border-right : 0px solid
+          background: none
+
+
 
