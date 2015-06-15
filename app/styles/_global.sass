@@ -1,10 +1,3 @@
-$susy: ( columns: 16,  global-box-sizing: border-box)
-$medium: ( columns: 16 )
-$bp-medium: max-width 1065px
-$off-canvas-width-2: 150px;
-$off-canvas-width-1: 0px;
-
-
 html,
 body
   background: $white
@@ -43,6 +36,8 @@ img
     transform: translate3d($off-canvas-width-1, 0, 0);
     @include susy-breakpoint($bp-medium, $medium)
       transform: translate3d($off-canvas-width-2, 0, 0);
+    .sidebar__button-open
+      display: none
 
 .content 
   @include span(14 of 16 last)
@@ -57,7 +52,46 @@ img
   border-width: 3px
   @include susy-breakpoint($bp-medium, $medium)
     left: -150px
-    width: 145px 
+    width: 145px
+  &__button-close
+    position: absolute
+    top: 2px
+    left: 2px
+    display: block
+    width: 1.925em
+    height: 2.2em
+    padding: 0
+    border: 0
+    outline: none
+    background: url("/images/close-btn.svg") left center no-repeat
+    overflow: hidden
+    white-space: nowrap
+    text-indent: 100%
+    filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=60)
+    opacity: 0.8
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0)
+    &:hover
+      background: url("/images/close-btn-hover.svg") left center no-repeat
+      filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=80)
+    @include susy-breakpoint($bp-minimum, $medium)
+      display: none
+  &__button-open
+    display: block
+    height: 2.25em
+    background: url("/images/menu.svg") left center no-repeat
+    background-size: 1.875em 1.5em
+    overflow: hidden
+    white-space: nowrap
+    text-indent: 100%
+    filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=70)
+    opacity: 0.6
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0)
+    &:hover
+      opacity: 0.8
+      filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=80)
+    @include susy-breakpoint($bp-minimum, $medium)
+      display: none
+
 
 
 .loading-spinner
