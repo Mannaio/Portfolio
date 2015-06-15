@@ -5,9 +5,7 @@ var Router = Ember.Router.extend({
   location: config.locationType
 });
 
-Router.map(function () {
-  this.route('index', {path: ''});
-  this.route('artist', {path: '/:artist'});
+Router.map(function() {
 });
 
 export default Router;

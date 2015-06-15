@@ -1,8 +1,8 @@
 import Ember from 'ember';
 
 var ApplicationController = Ember.Controller.extend({
-    artistName: null,
     showMenu: true,
+    display: true,
     actions: {
         goToArtist: function() {
             var artist;
