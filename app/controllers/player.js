@@ -4,14 +4,14 @@ var PlayerController = Ember.Controller.extend({
     isExpanded: false,
     trackSortProperties: ['created_at:desc'],
     sortedTracks: Ember.computed.alias('tracks'),
-    formattedArtwork: (function() {
+    formattedArtwork: Ember.computed('currentTrack.artwork_url', function() {
         var splitURL, url;
         if (this.get('currentTrack.artwork_url')) {
             url = this.get('currentTrack.artwork_url');
             splitURL = url.split('-large');
             return splitURL[0] + '-t300x300' + splitURL[1];
         }
-    }).property('currentTrack.artwork_url'),
+    }),
     actions: {
         togglePlayer: function() {
             this.toggleProperty('isCollapsed');

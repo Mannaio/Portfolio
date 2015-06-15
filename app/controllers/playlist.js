@@ -1,7 +1,7 @@
 import Ember from 'ember';
 
 var PlaylistController = Ember.ObjectController.extend({
-    albumArt: (function() {
+    albumArt: Ember.computed('artwork_url', function() {
         var firstTrack, lastTrack, playlistArt, trackArt;
         playlistArt = this.get('artwork_url');
         if (playlistArt != null) {
@@ -19,15 +19,15 @@ var PlaylistController = Ember.ObjectController.extend({
             trackArt = lastTrack.get('artwork_url');
         }
         return trackArt;
-    }).property('artwork_url'),
-    formattedArtwork: (function() {
+    }),
+    formattedArtwork: Ember.computed('albumArt', function() {
         var splitURL, url;
         if (this.get('albumArt')) {
             url = this.get('albumArt');
             splitURL = url.split('-large');
             return splitURL[0] + '-t500x500' + splitURL[1];
         }
-    }).property('albumArt')
+    })
 });
 
 export default PlaylistController;

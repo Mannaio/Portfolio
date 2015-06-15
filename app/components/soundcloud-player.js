@@ -7,31 +7,31 @@ var SoundcloudPlayerComponent = Ember.Component.extend({
     sound: null,
     position: 0,
     isPaused: false,
-    percentPlayed: (function () {
+    percentPlayed: Ember.computed('track.duration', 'position', function () {
         var percent;
         percent = 0;
         if (this.get('track') != null) {
             percent = (this.get('position') / this.get('track').get('duration')) * 100;
         }
         return percent;
-    }).property('track.duration', 'position'),
-    setPercentPlayed: (function () {
+    }),
+    setPercentPlayed: Ember.observer('percentPlayed', 'position', function () {
         var percent;
         percent = this.get('percentPlayed');
         return this.$('.progress-bar').css('width', percent + "%");
-    }).observes('percentPlayed', 'position'),
-    formattedPosition: (function () {
+    }),
+    formattedPosition: Ember.computed('position', function () {
         var position, res;
         position = this.get('position');
         res = this.formatTime(position);
         return res;
-    }).property('position'),
-    formattedDuration: (function () {
+    }),
+    formattedDuration: Ember.computed('track.duration', function () {
         var duration, res;
         duration = this.get('track.duration');
         res = this.formatTime(duration);
         return res;
-    }).property('track.duration'),
+    }),
     formatTime: function (time) {
         var minutes, seconds, timeObject;
         time = isNaN(time) ? 0 : time;
