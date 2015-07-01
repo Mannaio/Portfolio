@@ -28,14 +28,15 @@ img
 .container
   @include container
   height: 98vh
-  -webkit-transition: all 0.5s ease
-  -moz-transition: all 0.5s ease
-  -o-transition: all 0.5s ease
-  transition: all 0.5s ease
+  // -webkit-transition: all 0.5s ease
+  // -moz-transition: all 0.5s ease
+  // -o-transition: all 0.5s ease
+  // transition: all 0.5s ease
+  @include transition(all 0.6s ease)
   &.open 
-    transform: translate3d($off-canvas-width-1, 0, 0);
+    transform: translate3d($off-canvas-width-1, 0, 0)
     @include susy-breakpoint($bp-medium, $medium)
-      transform: translate3d($off-canvas-width-2, 0, 0);
+      transform: translate3d($off-canvas-width-2, 0, 0)
     .sidebar__button-open
       display: none
 
