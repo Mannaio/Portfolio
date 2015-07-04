@@ -15,10 +15,10 @@
 
 <div class="row">
     {{#each favorite in sortedFavorites}}
-        <div class="col-xs-4">
-            <a>
-                {{favorite.title}}
-            </a>
-        </div>
+            <div class="col-xs-4">
+                <a>
+                    <img {{bind-attr src=favorite.artwork_url}} >
+                </a>
+            </div>
     {{/each}}
 </div>

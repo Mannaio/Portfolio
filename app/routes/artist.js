@@ -18,7 +18,7 @@ var ArtistRoute = Ember.Route.extend({
             content: []
         });
         return new Ember.RSVP.Promise(function(resolve, reject) {
-            return SC.get("/users/" + 'mannaio' + "/favorites", {limit: 10}, function(favorites) {
+            return SC.get("/users/" + 'mannaio' + "/favorites", {limit: 40}, function(favorites) {
                 if (favorites.length) {
                     favorites.forEach(function(item, index, arr){
                         var favorite;
@@ -86,6 +86,7 @@ var ArtistRoute = Ember.Route.extend({
         record.setProperties({
             id: favorite.id,
             title: favorite.title,
+            artwork_url: favorite.artwork_url
         });
         arr.pushObject(record);
         return record;
