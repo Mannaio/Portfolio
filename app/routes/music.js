@@ -1,6 +1,6 @@
 import Ember from 'ember';
 
-var ArtistRoute = Ember.Route.extend({
+var MusicRoute = Ember.Route.extend({
     needs: ['player'],
     player: Ember.computed.alias('controllers.player'),
     beforeModel: function() {
@@ -22,9 +22,14 @@ var ArtistRoute = Ember.Route.extend({
                 if (favorites.length) {
                     favorites.forEach(function(item, index, arr){
                         var favorite;
-                        favorite = self.createFavoritelist(item, favoriteListProxy)
+                        favorite = self.createFavoritelist(item, favoriteListProxy);
+                        debugger
+                        // return item.user.forEach(function(user, index, arr){
+                        //     return user = self.createUser(user, favorite);
+                        // });
                     });
-                    favorites = favoriteListProxy.get('content')
+                    favorites = favoriteListProxy.get('content');
+                    debugger
                     return resolve(favorites);
                 }
             });
@@ -86,7 +91,8 @@ var ArtistRoute = Ember.Route.extend({
         record.setProperties({
             id: favorite.id,
             title: favorite.title,
-            artwork_url: favorite.artwork_url
+            artwork_url: favorite.artwork_url,
+            genre: favorite.genre
         });
         arr.pushObject(record);
         return record;
@@ -97,10 +103,16 @@ var ArtistRoute = Ember.Route.extend({
         record.setProperties(track).set('playlist', playlist);
         return record;
     },
+    // createUser: function(user, favorite) {
+    //     var record;
+    //     record = this.store.createRecord('user', {});
+    //     record.setProperties(user).set('favorite', favorite);
+    //     return record;
+    // },
     errorHandler: function(artist) {
         this.controllerFor('index').set('errorText', "Artist " + artist + " is invalid or does not have any playlists.");
         return this.transitionTo('index');
     }
 });
 
-export default ArtistRoute;
+export default MusicRoute;

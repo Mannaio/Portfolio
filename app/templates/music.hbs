@@ -13,12 +13,15 @@
     {{/each}}
 </div> -->
 
-<div class="row">
+<section class="streaming__favorites">
     {{#each favorite in sortedFavorites}}
-            <div class="col-xs-4">
+            <article class="streaming__favorites__song">
                 <a>
                     <img {{bind-attr src=favorite.artwork_url}} >
                 </a>
-            </div>
+                <span>{{favorite.title}}</span>
+                <span>{{favorite.genre}}</span>
+                <span>{{favorite.user}}</span>
+            </article>
     {{/each}}
-</div>
+</section>
