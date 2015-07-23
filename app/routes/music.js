@@ -10,66 +10,28 @@ var MusicRoute = Ember.Route.extend({
         });
     },
     model: function(params) {
-        var artist, favoriteListProxy, self;
+        var artist, favoriteList, self, ret;
         self = this;
         artist = params.artist;
+        ret = [];
         this.controllerFor('application').set('artistName', artist);
-        favoriteListProxy = Ember.ArrayProxy.create({
-            content: []
-        });
+
         return new Ember.RSVP.Promise(function(resolve, reject) {
-            return SC.get("/users/" + 'mannaio' + "/favorites", {limit: 40}, function(favorites) {
+            return SC.get("/users/" + 'mannaio' + "/favorites", {
+                limit: 40
+            }, function(favorites) {
                 if (favorites.length) {
-                    favorites.forEach(function(item, index, arr){
+                    favorites.forEach(function(item, index, arr) {
                         var favorite;
-                        favorite = self.createFavoritelist(item, favoriteListProxy);
-                        debugger
-                        // return item.user.forEach(function(user, index, arr){
-                        //     return user = self.createUser(user, favorite);
-                        // });
+                        favorite = self.createFavoritelist(item);
+                        ret.push(favorite);
+                        favorite.user = self.createUser(item.user);
                     });
-                    favorites = favoriteListProxy.get('content');
-                    debugger
-                    return resolve(favorites);
                 }
+                resolve(ret);
             });
         });
     },
-    // model: function(params) {
-    //     var artist, playlistProxy, self;
-    //     self = this;
-    //     artist = params.artist;
-    //     this.controllerFor('application').set('artistName', artist);
-    //     playlistProxy = Ember.ArrayProxy.create({
-    //         content: []
-    //     });
-    //     return new Ember.RSVP.Promise(function(resolve, reject) {
-    //         return SC.get("/users/" + 'mannaio' + "/playlist", function(playlists) {
-    //             if (playlist.length) {
-    //                 self.resetStore();
-    //                 playlists.forEach(function(item, index, arr) {
-    //                     var playlist;
-    //                     playlist = self.createPlaylist(item, playlistProxy);
-    //                     return item.tracks.forEach(function(track, index, arr) {
-    //                         return track = self.createTrack(track, playlist);
-    //                     });
-    //                 });
-    //                 playlists = playlistProxy.get('content');
-    //                 return resolve(playlists);
-    //             } else {
-    //                 return reject(self.errorHandler(artist));
-    //             }
-    //         });
-    //     });
-    // },
-    // setupController: function(controller, model) {
-    //     var track, tracks;
-    //     this._super(controller, model);
-    //     tracks = model.get('firstObject').get('tracks');
-    //     track = tracks.get('firstObject');
-    //     this.controllerFor('player').set('tracks', tracks).send('selectTrack', track, 0, false);
-    //     return controller;
-    // },
     resetStore: function() {
         this.store.unloadAll('playlist');
         return this.store.unloadAll('track');
@@ -85,17 +47,13 @@ var MusicRoute = Ember.Route.extend({
         arr.pushObject(record);
         return record;
     },
-    createFavoritelist: function(favorite, arr) {
-        var record;
-        record = this.store.createRecord('favorite', {});
-        record.setProperties({
+    createFavoritelist: function(favorite) {
+        return this.store.createRecord('favorite', {
             id: favorite.id,
             title: favorite.title,
             artwork_url: favorite.artwork_url,
-            genre: favorite.genre
+            genre: favorite.genre,
         });
-        arr.pushObject(record);
-        return record;
     },
     createTrack: function(track, playlist) {
         var record;
@@ -103,12 +61,11 @@ var MusicRoute = Ember.Route.extend({
         record.setProperties(track).set('playlist', playlist);
         return record;
     },
-    // createUser: function(user, favorite) {
-    //     var record;
-    //     record = this.store.createRecord('user', {});
-    //     record.setProperties(user).set('favorite', favorite);
-    //     return record;
-    // },
+    createUser: function(user) {
+        return this.store.createRecord('user', {
+            username: user.username
+        });
+    },
     errorHandler: function(artist) {
         this.controllerFor('index').set('errorText', "Artist " + artist + " is invalid or does not have any playlists.");
         return this.transitionTo('index');
