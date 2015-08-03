@@ -14,14 +14,16 @@
 </div> -->
 
 <section class="streaming__favorites">
-    {{#each favorite in sortedFavorites}}
+    {{#each favorite in sortedFavorites itemController='playlist'}}
+        {{#if favorite.formattedArtwork}}
             <article class="streaming__favorites__song">
                 <a>
-                    <img {{bind-attr src=favorite.artwork_url}} >
+                    <img {{bind-attr src=favorite.formattedArtwork}} >
                 </a>
-                <span>{{favorite.title}}</span>
+{{!--                 <span>{{favorite.title}}</span>
                 <span>{{favorite.genre}}</span>
-                <span>{{favorite.user.username}}</span>
+                <span>{{favorite.user.username}}</span> --}}
             </article>
+        {{/if}}
     {{/each}}
 </section>
