@@ -19,10 +19,14 @@
             <article class="streaming__favorites__song">
                 <a>
                     <img {{bind-attr src=favorite.formattedArtwork}} >
+                    <div class="streaming__favorites__cover">
+                        <span class="streaming__favorites__cover--title">{{favorite.title}}</span>
+                    </div>
                 </a>
-{{!--                 <span>{{favorite.title}}</span>
-                <span>{{favorite.genre}}</span>
-                <span>{{favorite.user.username}}</span> --}}
+                <div class="streaming__favorites__info">
+                    <span class="streaming__favorites__info--user">{{favorite.user.username}}</span>
+                    <span class="streaming__favorites__info--genre">{{favorite.genre}}</span>
+                </div>
             </article>
         {{/if}}
     {{/each}}
