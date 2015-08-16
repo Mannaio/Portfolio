@@ -63,7 +63,8 @@ var MusicRoute = Ember.Route.extend({
     },
     createUser: function(user) {
         return this.store.createRecord('user', {
-            username: user.username
+            username: user.username,
+            avatar_url: user.avatar_url,
         });
     },
     errorHandler: function(artist) {

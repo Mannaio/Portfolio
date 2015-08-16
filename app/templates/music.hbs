@@ -23,10 +23,15 @@
                         <span class="streaming__favorites__cover--title">{{favorite.title}}</span>
                     </div>
                 </a>
-                <div class="streaming__favorites__info">
-                    <span class="streaming__favorites__info--user">{{favorite.user.username}}</span>
-                    <span class="streaming__favorites__info--genre">{{favorite.genre}}</span>
-                </div>
+                <section class="streaming__favorites__card">
+                    <div class="streaming__favorites__info">
+                        <img class="streaming__favorites__info--avatar" {{bind-attr src=favorite.user.avatar_url}}>
+                    </div>
+                    <div class="streaming__favorites__artist">
+                        <span class="streaming__favorites__artist--user">{{favorite.user.username}}</span>
+                        <span class="streaming__favorites__artist--genre">{{favorite.genre}}</span>
+                    </div>
+                </section>
             </article>
         {{/if}}
     {{/each}}
