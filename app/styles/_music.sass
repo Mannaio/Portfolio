@@ -30,12 +30,8 @@
       display: block
       font-size: 12px
       text-align: center
-      -webkit-transition:top .2s ease
-      -moz-transition:top .2s ease
-      -ms-transition:top .2s ease
-      -o-transition:top .2s ease
-      transition:top .2s ease
-      top: -1px
+      @include transition(top .5s)
+      top: -5px
     &:hover &--title
       opacity: 0.9
       top: 0
