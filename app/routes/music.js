@@ -32,6 +32,14 @@ var MusicRoute = Ember.Route.extend({
             });
         });
     },
+    renderTemplate: function() {
+        this._super();
+        return this.render('player', {
+            into: 'music',
+            outlet: 'player',
+            controller: 'player'
+        });
+    },
     resetStore: function() {
         this.store.unloadAll('playlist');
         return this.store.unloadAll('track');
