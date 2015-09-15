@@ -27,8 +27,7 @@ img
 
 .container
   @include container
-  height: 98vh
-  @include transition(all 0.6s ease)
+  @include transition(all 0.2s ease)
   &.open 
     transform: translate3d($off-canvas-width-1, 0, 0)
     @include susy-breakpoint($bp-medium, $medium)

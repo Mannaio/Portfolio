@@ -32,7 +32,18 @@
       text-align: center
       @include transition(top .5s)
       top: -5px
-    &:hover &--title
+      &:after
+        position: absolute
+        opacity: 0.7
+        color: $orange 
+        content: "\f01d"
+        font: normal normal normal 70px/1 FontAwesome
+        top: 75px
+        margin-left: auto
+        margin-right: auto
+        left: 0
+        right: 0
+    &:hover &--title, &--play
       opacity: 0.9
       top: 0
   &__card,
