@@ -3,15 +3,15 @@ import Ember from 'ember';
 var SoundcloudPlayerComponent = Ember.Component.extend({
     tagName: 'div',
     classNames: ['soundcloud-player'],
-    track: null,
+    favorite: null,
     sound: null,
     position: 0,
     isPaused: false,
-    percentPlayed: Ember.computed('track.duration', 'position', function () {
+    percentPlayed: Ember.computed('favorite.duration', 'position', function () {
         var percent;
         percent = 0;
-        if (this.get('track') != null) {
-            percent = (this.get('position') / this.get('track').get('duration')) * 100;
+        if (this.get('favorite') != null) {
+            percent = (this.get('position') / this.get('favorite').get('duration')) * 100;
         }
         return percent;
     }),
@@ -26,9 +26,9 @@ var SoundcloudPlayerComponent = Ember.Component.extend({
         res = this.formatTime(position);
         return res;
     }),
-    formattedDuration: Ember.computed('track.duration', function () {
+    formattedDuration: Ember.computed('favorite.duration', function () {
         var duration, res;
-        duration = this.get('track.duration');
+        duration = this.get('favorite.duration');
         res = this.formatTime(duration);
         return res;
     }),
@@ -42,17 +42,17 @@ var SoundcloudPlayerComponent = Ember.Component.extend({
         return minutes + ":" + seconds;
     },
     actions: {
-        pauseTrack: function () {
+        pauseFavorite: function () {
             this.get('sound').pause();
             this.set('isPlaying', false);
             return this.set('isPaused', true);
         },
-        resumeTrack: function () {
+        resumeFavorite: function () {
             this.get('sound').resume();
             this.set('isPlaying', true);
             return this.set('isPaused', false);
         },
-        playTrack: function () {
+        playFavorite: function () {
             this.get('sound').play();
             this.set('isPlaying', true);
             return this.set('isPaused', false);

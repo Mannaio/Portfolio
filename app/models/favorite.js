@@ -4,6 +4,8 @@ var Favorite = DS.Model.extend({
     title: DS.attr('string'),
     artwork_url: DS.attr('string'),
     name: DS.attr('string'),
+    duration: DS.attr('string'),
+    uri: DS.attr('string'),
     users: DS.hasMany('user')
 });
 

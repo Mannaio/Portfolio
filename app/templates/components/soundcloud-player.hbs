@@ -1,21 +1,21 @@
 <h4>
-    {{#if track}}
+    {{#if favorite}}
         <span class="track-status">
             {{#if isBuffering}}
                 <i class="fa fa-spinner fa-spin"></i>
             {{else}}
                 {{#if isPlaying}}
-                    <a {{ action 'pauseTrack' }}>
+                    <a {{ action 'pauseFavorite' }}>
                         <i class="fa fa-pause"></i>
                     </a>
                 {{else}}
 
                     {{#if isPaused}}
-                        <a {{ action 'resumeTrack' }}>
+                        <a {{ action 'resumeFavorite' }}>
                             <i class="fa fa-play"></i>
                         </a>
                     {{else}}
-                        <a {{ action 'playTrack'}}>
+                        <a {{ action 'playFavorite'}}>
                             <i class="fa fa-play"></i>
                         </a>
                     {{/if}}

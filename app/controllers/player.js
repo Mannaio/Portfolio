@@ -2,12 +2,12 @@ import Ember from 'ember';
 
 var PlayerController = Ember.Controller.extend({
     isExpanded: false,
-    trackSortProperties: ['created_at:desc'],
-    sortedTracks: Ember.computed.alias('tracks'),
-    formattedArtwork: Ember.computed('currentTrack.artwork_url', function() {
+    favoriteSortProperties: ['created_at:desc'],
+    sortedFavorites: Ember.computed.alias('favorites'),
+    formattedArtwork: Ember.computed('currentFavorite.artwork_url', function() {
         var splitURL, url;
-        if (this.get('currentTrack.artwork_url')) {
-            url = this.get('currentTrack.artwork_url');
+        if (this.get('currentFavorite.artwork_url')) {
+            url = this.get('currentFavorite.artwork_url');
             splitURL = url.split('-large');
             return splitURL[0] + '-t300x300' + splitURL[1];
         }
@@ -17,41 +17,41 @@ var PlayerController = Ember.Controller.extend({
             this.toggleProperty('isCollapsed');
             return false;
         },
-        selectTrack: function(track, index, play) {
-            var nextTrack, prevTrack, self, trackPath;
+        selectFavorite: function(favorite, index, play) {
+            var nextFavorite, prevFavorite, self, FavoritePath;
             self = this;
             if (play == null) {
                 play = true;
             }
-            self.get('tracks').setEach('playingTrack', false);
+            self.get('favorites').setEach('playingFavorite', false);
             self.set('isBuffering', true);
-            track.set('playingTrack', true);
-            trackPath = track.get('uri');
-            prevTrack = this.get('currentTrackObject');
-            if (prevTrack != null) {
-                prevTrack.destruct();
+            favorite.set('playingFavorite', true);
+            FavoritePath = favorite.get('uri');
+            prevFavorite = this.get('currentFavoriteObject');
+            if (prevFavorite != null) {
+                prevFavorite.destruct();
             }
-            self.set('currentTrack', track);
+            self.set('currentFavorite', favorite);
             if (!this.get('externalPlay')) {
                 index = index + 1;
-                nextTrack = this.get('sortedTracks').nextObject(index, track);
-                self.set('nextTrack', nextTrack);
+                nextFavorite = this.get('sortedFavorites').nextObject(index, favorite);
+                self.set('nextFavorite', nextFavorite);
             }
-            return SC.stream(trackPath, {
+            return SC.stream(FavoritePath, {
                 whileplaying: function() {
-                    return self.set('currentTrackPosition', this.position);
+                    return self.set('currentFavoritePosition', this.position);
                 },
                 onbufferchange: function() {
                     return self.set('isBuffering', this.isBuffering);
                 },
                 onfinish: function() {
                     self.set('isPlaying', false);
-                    if (self.get('nextTrack') != null) {
-                        return self.send('selectTrack', self.get('nextTrack'), index);
+                    if (self.get('nextFavorite') != null) {
+                        return self.send('selectFavorite', self.get('nextFavorite'), index);
                     }
                 }
             }, function(sound) {
-                self.set('currentTrackObject', sound);
+                self.set('currentFavoriteObject', sound);
                 self.set('isPlaying', true);
                 sound.play();
                 if (!play) {
