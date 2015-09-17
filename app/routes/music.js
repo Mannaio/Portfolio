@@ -59,15 +59,11 @@ var MusicRoute = Ember.Route.extend({
         return this.store.createRecord('favorite', {
             id: favorite.id,
             title: favorite.title,
+            duration: favorite.duration,
+            uri: favorite.uri,
             artwork_url: favorite.artwork_url,
             genre: favorite.genre,
         });
-    },
-    createTrack: function(track, playlist) {
-        var record;
-        record = this.store.createRecord('track', {});
-        record.setProperties(track).set('playlist', playlist);
-        return record;
     },
     createUser: function(user) {
         return this.store.createRecord('user', {

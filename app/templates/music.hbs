@@ -17,7 +17,7 @@
     {{#each favorite in sortedFavorites itemController='playlist'}}
         {{#if favorite.formattedArtwork}}
             <article class="streaming__favorites__song">
-                <a>
+                <a {{action 'selectFavorite' favorite _view.contentIndex}} >
                     <img {{bind-attr src=favorite.formattedArtwork}} >
                     <div class="streaming__favorites__cover">
                         <span class="streaming__favorites__cover--title">{{favorite.title}}</span>

@@ -1,9 +1,9 @@
 <div class="streaming__player {{if currentTrack 'navbar-collapsed'}}">
-    {{#if currentTrack}}
+    {{#if currentFavorite}}
         <img class="track-image" src={{ formattedArtwork }} />
     {{/if}}
 
-    {{soundcloud-player track=currentTrack sound=currentTrackObject position=currentTrackPosition isPlaying=isPlaying isBuffering=isBuffering}}
+    {{soundcloud-player favorite=currentFavorite sound=currentFavoriteObject position=currentFavoritePosition isPlaying=isPlaying isBuffering=isBuffering}}
 
 {{!--     <div class="tracks-list">
         <ul class="list-unstyled">
