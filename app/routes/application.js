@@ -7,7 +7,7 @@ var ApplicationRoute = Ember.Route.extend({
             into: 'application',
             outlet: 'menu',
         });
-    }
+    },
 });
 
 export default ApplicationRoute;

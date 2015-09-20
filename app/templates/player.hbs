@@ -1,19 +1,10 @@
-<div class="streaming__player {{if currentTrack 'navbar-collapsed'}}">
+<div class="streaming__player {{if currentfavorite 'navbar-collapsed'}}">
     {{#if currentFavorite}}
         <img class="track-image" src={{ formattedArtwork }} />
     {{/if}}
 
     {{soundcloud-player favorite=currentFavorite sound=currentFavoriteObject position=currentFavoritePosition isPlaying=isPlaying isBuffering=isBuffering}}
 
-{{!--     <div class="tracks-list">
-        <ul class="list-unstyled">
-            {{#each track in sortedTracks}}
-                <li class={{ track.playingTrack:active }}>
-                    <a {{action 'selectTrack' track _view.contentIndex}}>{{track.title}}</a>
-                </li>
-            {{/each}}
-        </ul>
-    </div> --}}
 </div>
 
 
