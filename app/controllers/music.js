@@ -7,8 +7,6 @@ var MusicController = Ember.ArrayController.extend({
     sortedFavorites: Ember.computed.sort('model', 'sortProperties'),
     actions: {
         setAsFavorite: function (favorite) {
-            var favorite, favorites;
-            favorite = favorite.get('firstObject');
             if (favorite != null) {
                 this.get('player').set('favorite', favorite);
             }
