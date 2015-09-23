@@ -1,6 +1,6 @@
 <h4>
     {{#if favorite}}
-        <span class="track-status">
+        <span class="streaming__controllers--status">
             {{#if isBuffering}}
                 <i class="fa fa-spinner fa-spin"></i>
             {{else}}
@@ -24,7 +24,7 @@
         </span>
     {{/if}}
 
-    <span class="track-times">#{{formattedPosition}} / #{{formattedDuration}}</span>
+    <span class="streaming__controllers--status--times">#{{formattedPosition}} / #{{formattedDuration}}</span>
 </h4>
 
 <div class="track-progress progress progress">

@@ -2,7 +2,7 @@ import Ember from 'ember';
 
 var SoundcloudPlayerComponent = Ember.Component.extend({
     tagName: 'div',
-    classNames: ['soundcloud-player'],
+    classNames: ['streaming__controllers'],
     favorite: null,
     sound: null,
     position: 0,
