@@ -18,7 +18,7 @@ var SoundcloudPlayerComponent = Ember.Component.extend({
     setPercentPlayed: Ember.observer('percentPlayed', 'position', function () {
         var percent;
         percent = this.get('percentPlayed');
-        return this.$('.progress-bar').css('width', percent + "%");
+        return this.$('.streaming__progress--progress-bar').css('width', percent + "%");
     }),
     formattedPosition: Ember.computed('position', function () {
         var position, res;
