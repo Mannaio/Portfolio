@@ -14,6 +14,17 @@ module.exports = function(environment) {
       }
     },
 
+    contentSecurityPolicy: {
+      'font-src': "'self' data: fonts.gstatic.com",
+      'style-src': "'self' 'unsafe-inline' fonts.googleapis.com",
+      'default-src': "'none' data: connect.soundcloud.com",
+      'script-src': "'self' data: connect.soundcloud.com",
+      'connect-src': "'self' data: cf-media.sndcdn.com",
+      'img-src': "'self' data: i1.sndcdn.com",
+      'media-src': "'self'"
+    },
+
+
     APP: {
       // Here you can pass flags/options to your application instance
       // when it is created
@@ -21,6 +32,7 @@ module.exports = function(environment) {
   };
 
   if (environment === 'development') {
+
     // ENV.APP.LOG_RESOLVER = true;
     // ENV.APP.LOG_ACTIVE_GENERATION = true;
     // ENV.APP.LOG_TRANSITIONS = true;
