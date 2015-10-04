@@ -10,7 +10,7 @@ var MusicRoute = Ember.Route.extend({
         });
     },
     model: function(params) {
-        var artist, favoriteList, self, ret;
+        var artist, self, ret;
         self = this;
         artist = params.artist;
         ret = [];
@@ -21,14 +21,16 @@ var MusicRoute = Ember.Route.extend({
                 limit: 40
             }, function(favorites) {
                 if (favorites.length) {
-                    favorites.forEach(function(item, index, arr) {
+                    favorites.forEach(function(item) {
                         var favorite;
                         favorite = self.createFavoritelist(item);
                         ret.push(favorite);
                         favorite.user = self.createUser(item.user);
                     });
+                    resolve(ret);                
+                } else {
+                  return reject(self.errorHandler(artist));
                 }
-                resolve(ret);
             });
         });
     },

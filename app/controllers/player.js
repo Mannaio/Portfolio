@@ -3,7 +3,7 @@ import Ember from 'ember';
 var PlayerController = Ember.Controller.extend({
     isExpanded: false,
     favoriteSortProperties: ['created_at:desc'],
-    sortedFavorites: Ember.computed.alias('favorites'),
+    sortedFavorites: Ember.computed.sort('model' , 'favoriteSortProperties'),
     formattedArtwork: Ember.computed('currentFavorite.artwork_url', function() {
         var splitURL, url;
         if (this.get('currentFavorite.artwork_url')) {
@@ -32,11 +32,11 @@ var PlayerController = Ember.Controller.extend({
                 prevFavorite.destruct();
             }
             self.set('currentFavorite', favorite);
-            // if (!this.get('externalPlay')) {
-            //     index = index + 1;
-            //     nextFavorite = this.get('sortedFavorites').nextObject(index, favorite);
-            //     self.set('nextFavorite', nextFavorite);
-            // }
+            if (!this.get('externalPlay')) {
+                index = index + 1;
+                nextFavorite = this.get('sortedFavorites').nextObject(index, favorite);
+                self.set('nextFavorite', nextFavorite);
+            }
             return SC.stream(favoritePath, {
                 whileplaying: function() {
                     return self.set('currentFavoritePosition', this.position);

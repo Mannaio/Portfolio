@@ -17,9 +17,10 @@ module.exports = function(environment) {
     contentSecurityPolicy: {
       'font-src': "'self' data: fonts.gstatic.com",
       'style-src': "'self' 'unsafe-inline' fonts.googleapis.com",
-      'default-src': "'none' data: connect.soundcloud.com",
+      'object-src': "'self' data: connect.soundcloud.com",
+      'default-src': "'self' data: connect.soundcloud.com",
       'script-src': "'self' data: connect.soundcloud.com",
-      'connect-src': "'self' data: cf-media.sndcdn.com",
+      'connect-src': "'self' data: api.soundcloud.com",
       'img-src': "'self' data: i1.sndcdn.com",
       'media-src': "'self'"
     },
