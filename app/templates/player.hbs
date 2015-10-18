@@ -1,11 +1,16 @@
 <div class="streaming__player {{if currentfavorite 'navbar-collapsed'}}">
     {{#if currentFavorite}}
-        <img class="streaming__image" src={{ favorite.artwork_url }} />
+        <img class="streaming__image" src={{ formattedArtwork }} />
     {{/if}}
 
     {{soundcloud-player favorite=currentFavorite sound=currentFavoriteObject position=currentFavoritePosition isPlaying=isPlaying isBuffering=isBuffering}}
 
 </div>
+
+
+
+
+
 
 
 

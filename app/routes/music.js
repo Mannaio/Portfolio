@@ -35,10 +35,12 @@ var MusicRoute = Ember.Route.extend({
         });
     },
     setupController: function(controller, model) {
-        var favorite ;
+        var favorite, favorites ;
         this._super(controller, model);
-        favorite = model.get('firstObject');
-        this.controllerFor('player').set('favorite', favorite).send('selectFavorite', favorite, 0, false);
+        favorites = this.get('controller.model');
+        favorite =  favorites.get('firstObject');
+        this.controllerFor('player').set('favorites', favorites).send('selectFavorite', favorite, 0, false);
+        this.controllerFor('player').set('favorite', favorite);
         return controller;
     },
     renderTemplate: function() {

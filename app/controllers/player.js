@@ -3,10 +3,11 @@ import Ember from 'ember';
 var PlayerController = Ember.Controller.extend({
     isExpanded: false,
     favoriteSortProperties: ['created_at:desc'],
-    sortedFavorites: Ember.computed.sort('model' , 'favoriteSortProperties'),
+    sortedFavorites: Ember.computed.alias('favorites'),
     formattedArtwork: Ember.computed('currentFavorite.artwork_url', function() {
         var splitURL, url;
         if (this.get('currentFavorite.artwork_url')) {
+            console.log('miao')
             url = this.get('currentFavorite.artwork_url');
             splitURL = url.split('-large');
             return splitURL[0] + '-t300x300' + splitURL[1];
@@ -23,7 +24,7 @@ var PlayerController = Ember.Controller.extend({
             if (play == null) {
                 play = true;
             }
-            self.get('favorite').set('playingFavorite', false);
+            // self.get('favorite').set('playingFavorite', false);
             // self.set('isBuffering', true);
             favorite.set('playingFavorite', true);
             favoritePath = favorite.get('uri');
@@ -45,10 +46,12 @@ var PlayerController = Ember.Controller.extend({
                     return self.set('isBuffering', this.isBuffering);
                 },
                 onfinish: function() {
+                    debugger
                     self.set('isPlaying', false);
                     if (self.get('nextFavorite') != null) {
                         return self.send('selectFavorite', self.get('nextFavorite'), index);
                     }
+                    self.set('favorite.artwork_url', nextFavorite.artwork_url)
                 }
             }, function(sound) {
                 self.set('currentFavoriteObject', sound);

@@ -7,15 +7,17 @@ var MusicController = Ember.ArrayController.extend({
     sortedFavorites: Ember.computed.sort('model', 'sortProperties'),
     actions: {
         setAsFavorite: function (favorite) {
-            if (favorite != null) {
-                this.get('player').set('favorite', favorite);
-            }
-            if (favorite != null) {
-                return this.get('player').send('selectFavorite', favorite, 0);
-            }
-        }
-    }
+            var favorites = this.get('model');
+            var player = this.get('player');
 
+            if (Ember.isPresent(favorite)) {
+              this.controllerFor('player').set('favorite', favorite);
+              player.send('selectFavorite', favorite, favorites.indexOf(favorite)); 
+              // for next song 
+             //  player.send('selectFavorite', favorite, favorites.nextObject(favorite)); 
+            } 
+        }
+    }    
 });
 
 export default MusicController;
