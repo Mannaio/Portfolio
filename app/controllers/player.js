@@ -7,7 +7,6 @@ var PlayerController = Ember.Controller.extend({
     formattedArtwork: Ember.computed('currentFavorite.artwork_url', function() {
         var splitURL, url;
         if (this.get('currentFavorite.artwork_url')) {
-            console.log('miao')
             url = this.get('currentFavorite.artwork_url');
             splitURL = url.split('-large');
             return splitURL[0] + '-t300x300' + splitURL[1];

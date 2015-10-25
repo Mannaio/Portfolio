@@ -87,8 +87,23 @@ img
       filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=80)
     @include susy-breakpoint($bp-minimum, $medium)
       display: none
-
-
+  .gears
+    display: none
+    height: 50px
+    margin-top: 10px
+    margin-left: 4px
+    @include susy-breakpoint($bp-minimum, $medium)
+      display: block
+    .fa
+      color: $white
+      text-shadow: 0px 0px 1px #9A9A9A
+    .small
+      font-size: 26px
+    .big
+      font-size: 34px
+      left: 26px
+      position: absolute
+      top: 1px
 
 .loading-spinner
   font-size: 200px
@@ -98,3 +113,4 @@ img
   margin-top: 15px
   position: absolute
   width: 175px
+
