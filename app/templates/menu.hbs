@@ -10,16 +10,16 @@
             <span>UI & Front End Developer</span>
         </li>
         <li class="nav__list__item">
-            <a class="nav__link" href="#">About</a>
+            {{#link-to 'index' class="nav__link"}}About{{/link-to}}
         </li>
         <li class="nav__list__item">
-            {{#link-to 'music' 'mannaio' class="nav__link"}}Music{{/link-to}}
+            {{#link-to 'music' 'music' class="nav__link"}}Music{{/link-to}}
         </li>
         <li class="nav__list__item">
-            <a class="nav__link" href="#">Photography</a>
+            {{#link-to 'photography' 'photography' class="nav__link"}}Photography{{/link-to}}
         </li>
         <li class="nav__list__item">
-            <a class="nav__link" href="#">Graphic</a>
+            {{#link-to 'graphic' 'graphic' class="nav__link"}}Graphic{{/link-to}}
         </li>
     </ul>
 </nav>
