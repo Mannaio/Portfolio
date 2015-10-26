@@ -1,6 +1,6 @@
 import Ember from 'ember';
 
-var ApplicationRoute = Ember.Route.extend({
+var IndexRoute = Ember.Route.extend({
     renderTemplate: function() {
         this._super();
         return this.render('menu', {
@@ -8,9 +8,6 @@ var ApplicationRoute = Ember.Route.extend({
             outlet: 'menu',
         });
     },
-    model: function(params){
-	   return Ember.$.getJSON("https://api.github.com/users/" + params.mannaio);
-    },
 });
 
-export default ApplicationRoute;
+export default IndexRoute;
