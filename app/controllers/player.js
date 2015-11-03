@@ -25,7 +25,7 @@ var PlayerController = Ember.Controller.extend({
             }
             // self.get('favorite').set('playingFavorite', false);
             // self.set('isBuffering', true);
-            favorite.set('playingFavorite', true);
+            // favorite.set('playingFavorite', true);
             favoritePath = favorite.get('uri');
             prevFavorite = this.get('currentFavoriteObject');
             if (prevFavorite != null) {

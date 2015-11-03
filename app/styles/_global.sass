@@ -87,6 +87,35 @@ img
       filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=80)
     @include susy-breakpoint($bp-minimum, $medium)
       display: none
+  .logo
+    @include susy-breakpoint ($bp-medium)
+      display: none
+    top: 20px
+    position: absolute
+    margin: 0
+    padding: 0
+    &__music,
+    &__coding,
+    &__photography
+      font-size: 10px
+      font-family: $Khula-font
+      text-indent: 5px
+      line-height: 15px
+      text-decoration: line-through
+      p,span
+        display: inline
+      span
+        font-size: 14px
+    &__music
+      span
+        color: $lightblue
+    &__coding
+      span
+        color: $darkgray
+    &__photography
+      span
+        color: $orange  
+
   .gears
     display: none
     height: 50px

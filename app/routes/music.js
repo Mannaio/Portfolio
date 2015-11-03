@@ -2,7 +2,9 @@ import Ember from 'ember';
 
 var MusicRoute = Ember.Route.extend({
     needs: ['player'],
+    isVisible: true,
     player: Ember.computed.alias('controllers.player'),
+    visibility: Ember.inject.service('visible'),
     beforeModel: function() {
         return SC.initialize({
             client_id: window.soundcloud_api_key,
@@ -21,7 +23,8 @@ var MusicRoute = Ember.Route.extend({
                 limit: 40
             }, function(favorites) {
                 if (favorites.length) {
-                    favorites.forEach(function(item) {
+                    self.resetStore();
+                    favorites.toArray().forEach(function(item) {
                         var favorite;
                         favorite = self.createFavoritelist(item);
                         ret.push(favorite);
@@ -33,6 +36,9 @@ var MusicRoute = Ember.Route.extend({
                 }
             });
         });
+    },
+    afterModel: function() {
+        this.set('visibility.isVisible', false);
     },
     setupController: function(controller, model) {
         var favorite, favorites ;
@@ -52,8 +58,7 @@ var MusicRoute = Ember.Route.extend({
         });
     },
     resetStore: function() {
-        this.store.unloadAll('playlist');
-        return this.store.unloadAll('track');
+        this.store.unloadAll('favorite');
     },
     createPlaylist: function(playlist, arr) {
         var record;

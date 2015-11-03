@@ -1,13 +1,22 @@
-<!-- Sidebar -->
-<div class="gears">
-    <i class="fa fa-cog fa-spin fa-fw small"></i>
-    <i class="fa fa-cog fa-counter fa-fw big"></i>
-</div>
+{{gears-animation isVisible = "false"}}
+<header>
+    <ul class="logo">
+        <li class="logo__music">
+            <span>M</span><p>usic</p>
+        </li>
+        <li class="logo__coding">
+            <span>C</span><p>oding</p>
+        </li>
+        <li class="logo__photography">
+            <span>P</span><p>hotography</p>
+        </li>
+    </ul>
+</header>
 <nav role="navigation" class="nav">
     <ul class="nav__list">
         <li class="nav__list__item--brand">
             <a href="#">Tommaso Villa</a>
-            <span>UI & Front End Developer</span>
+            <span>UI Developer</span>
         </li>
         <li class="nav__list__item">
             {{#link-to 'index' class="nav__link"}}About{{/link-to}}
