@@ -2,7 +2,7 @@ import Ember from 'ember';
 
 var MusicRoute = Ember.Route.extend({
     needs: ['player'],
-    isVisible: true,
+    isVisible: false,
     player: Ember.computed.alias('controllers.player'),
     visibility: Ember.inject.service('visible'),
     beforeModel: function() {
