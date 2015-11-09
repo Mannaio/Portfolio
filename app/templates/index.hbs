@@ -1,10 +1,40 @@
 <div class="row">
     <div class="col-xs-12">
-        {{#if errorText}}
-            <div class="alert alert-danger">{{errorText}}</div>
-        {{/if}}
-        <div class="recommendations">
-            <p>Need some recommendations? Check out:</p>
+        <div class="github">
+        	<div class="github__profile">
+        		<div class="github__profile--avatar">
+        			<img>
+        		</div>
+        		<div class="github__profile--name">
+        			<p>Tommaso Villa</p>
+        		</div>
+				<div class="github__profile--company">
+					<p>William Hill</p>
+        		</div>
+				<div class="github__profile--location">
+					<p>Gibraltar</p>
+        		</div>
+				<div class="github__profile--followers">
+					<p>Followers: 7</p>
+        		</div>
+				<div class="github__profile--following">
+					<p>Following: 14</p>
+        		</div>
+        		<div class="github__profile--description">
+        			<p>Bacon ipsum dolor amet ham hock chuck ham cupim venison drumstick. Pig pork shoulder sirloin, biltong swine turducken jerky. Turducken pig leberkas jerky corned beef. Hamburger capicola spare ribs andouille kielbasa fatback. Pastrami ham drumstick beef, pig pork loin shank meatball pancetta sirloin brisket alcatra hamburger.
+Jerky ground round pork chop, salami kielbasa prosciutto doner. Capicola kevin frankfurter salami alcatra turducken hamburger cupim shoulder corned beef. Porchetta spare ribs pork rump cupim ham swine. Corned beef ham hock short ribs salami shank.
+Ham spare ribs beef kielbasa. Porchetta sirloin flank pancetta jerky, bacon brisket ham hock meatloaf jowl bresaola leberkas. Pork chop venison porchetta ham. Fatback shankle venison andouille, cupim short loin cow strip steak jowl spare ribs drumstick turkey porchetta biltong.
+Sausage pancetta drumstick, prosciutto tongue swine doner kevin tail cupim. Frankfurter kevin pig biltong pork loin tri-tip shoulder ham hock rump pork ground round ball tip kielbasa jowl. Pastrami ribeye shoulder rump t-bone. Alcatra short ribs short loin, beef salami cow pig landjaeger pork leberkas. Chicken prosciutto doner, spare ribs kielbasa hamburger bacon sausage. Jerky ham hock meatball capicola. Filet mignon sirloin meatball tri-tip.</p>
+        		</div>
+	        </div>
+	        <div class="github__activity">
+		        {{#each repo in model}}
+		            <p>{{repo.name}}</p>
+		            <p>{{repo.description}}</p>
+		        {{/each}}	     
+	        </div>
         </div>
     </div>
 </div>
+
+

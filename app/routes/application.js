@@ -8,12 +8,9 @@ var ApplicationRoute = Ember.Route.extend({
             outlet: 'menu',
         });
     },
-	  beforeModel: function() {
-	    this.transitionTo('index');
-	  }
-    // model: function(params){
-	   // return Ember.$.getJSON("https://api.github.com/users/" + params.mannaio);
-    // },
+    beforeModel: function() {
+        this.transitionTo('index');
+    }
 });
 
 export default ApplicationRoute;
