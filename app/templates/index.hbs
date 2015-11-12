@@ -5,21 +5,23 @@
         		<div class="github__profile--avatar">
         			<img>
         		</div>
-        		<div class="github__profile--name">
-        			<p>Tommaso Villa</p>
-        		</div>
-				<div class="github__profile--company">
-					<p>William Hill</p>
-        		</div>
-				<div class="github__profile--location">
-					<p>Gibraltar</p>
-        		</div>
-				<div class="github__profile--followers">
-					<p>Followers: 7</p>
-        		</div>
-				<div class="github__profile--following">
-					<p>Following: 14</p>
-        		</div>
+        			{{#each git in model}}
+		        		<div class="github__profile--name">
+		        			<p>Tommaso Villa</p>
+		        		</div>
+						<div class="github__profile--company">
+							<p>Company:{{git.company}}</p>
+		        		</div>
+						<div class="github__profile--location">
+							<p>Location:{{git.location}}</p>
+		        		</div>
+						<div class="github__profile--followers">
+							<p>Followers:{{git.followers}}</p>
+		        		</div>
+						<div class="github__profile--following">
+							<p>Followers:{{git.following}}</p>
+		        		</div>
+		        	{{/each}}
         		<div class="github__profile--description">
         			<p>Bacon ipsum dolor amet ham hock chuck ham cupim venison drumstick. Pig pork shoulder sirloin, biltong swine turducken jerky. Turducken pig leberkas jerky corned beef. Hamburger capicola spare ribs andouille kielbasa fatback. Pastrami ham drumstick beef, pig pork loin shank meatball pancetta sirloin brisket alcatra hamburger.
 Jerky ground round pork chop, salami kielbasa prosciutto doner. Capicola kevin frankfurter salami alcatra turducken hamburger cupim shoulder corned beef. Porchetta spare ribs pork rump cupim ham swine. Corned beef ham hock short ribs salami shank.
