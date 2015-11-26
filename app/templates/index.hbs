@@ -2,37 +2,28 @@
     <div class="col-xs-12">
         <div class="github">
         	<div class="github__profile">
-        		<div class="github__profile--avatar">
-        			<img>
-        		</div>
-        			{{#each git in model}}
-		        		<div class="github__profile--name">
-		        			<p>Tommaso Villa</p>
-		        		</div>
-						<div class="github__profile--company">
-							<p>Company:{{git.company}}</p>
-		        		</div>
-						<div class="github__profile--location">
-							<p>Location:{{git.location}}</p>
-		        		</div>
-						<div class="github__profile--followers">
-							<p>Followers:{{git.followers}}</p>
-		        		</div>
-						<div class="github__profile--following">
-							<p>Followers:{{git.following}}</p>
-		        		</div>
-		        	{{/each}}
         		<div class="github__profile--description">
-        			<p>Bacon ipsum dolor amet ham hock chuck ham cupim venison drumstick. Pig pork shoulder sirloin, biltong swine turducken jerky. Turducken pig leberkas jerky corned beef. Hamburger capicola spare ribs andouille kielbasa fatback. Pastrami ham drumstick beef, pig pork loin shank meatball pancetta sirloin brisket alcatra hamburger.
-Jerky ground round pork chop, salami kielbasa prosciutto doner. Capicola kevin frankfurter salami alcatra turducken hamburger cupim shoulder corned beef. Porchetta spare ribs pork rump cupim ham swine. Corned beef ham hock short ribs salami shank.
-Ham spare ribs beef kielbasa. Porchetta sirloin flank pancetta jerky, bacon brisket ham hock meatloaf jowl bresaola leberkas. Pork chop venison porchetta ham. Fatback shankle venison andouille, cupim short loin cow strip steak jowl spare ribs drumstick turkey porchetta biltong.
-Sausage pancetta drumstick, prosciutto tongue swine doner kevin tail cupim. Frankfurter kevin pig biltong pork loin tri-tip shoulder ham hock rump pork ground round ball tip kielbasa jowl. Pastrami ribeye shoulder rump t-bone. Alcatra short ribs short loin, beef salami cow pig landjaeger pork leberkas. Chicken prosciutto doner, spare ribs kielbasa hamburger bacon sausage. Jerky ham hock meatball capicola. Filet mignon sirloin meatball tri-tip.</p>
+        			<h1>Profile</h1>
+	        		<p>
+						Bacon ipsum dolor amet beef ribs ground round shankle, bacon alcatra tri-tip shank short ribs andouille kevin tail chuck salami biltong. Cow pig landjaeger, tongue shankle biltong capicola. Pork loin flank ribeye boudin andouille alcatra. Corned beef swine tongue doner. Tri-tip bresaola meatball, filet mignon kielbasa shankle chicken spare ribs andouille chuck. Beef kielbasa doner turducken, tail turkey t-bone landjaeger picanha venison shank pork belly ham leberkas. Sirloin boudin sausage, andouille bresaola drumstick picanha landjaeger t-bone pastrami fatback short loin kevin.
+						Shank prosciutto sirloin ham hock tenderloin. Drumstick short ribs picanha, corned beef ribeye meatball spare ribs bresaola pig landjaeger strip steak prosciutto meatloaf biltong doner. Leberkas prosciutto doner, shankle filet mignon tenderloin capicola rump turducken. Sirloin rump salami biltong, t-bone ball tip porchetta cow meatloaf fatback jowl doner brisket. Picanha spare ribs sausage pork chop bacon beef alcatra capicola andouille meatball pastrami sirloin. Doner ham hock kevin sausage, porchetta bacon t-bone jowl beef chuck rump landjaeger. Porchetta alcatra tri-tip picanha.
+	        		</p>
+        		</div>
+				<div class="github__profile--company">
+					<h1>Repositories</h1>
+					<p>Company:{{model.gitUsers.company}}</p>
+					<p>Followers:{{model.gitUsers.followers}}</p>
+					<p>Following:{{model.gitUsers.following}}</p>
+					<p>Repositories:{{model.gitUsers.public_repos}}</p>
+					<p>Gists:{{model.gitUsers.public_gists}}</p>
         		</div>
 	        </div>
 	        <div class="github__activity">
-		        {{#each repo in model}}
-		            <p>{{repo.name}}</p>
-		            <p>{{repo.description}}</p>
+	        	<h1>GitHub Stats</h1>
+		          {{#each model.repos}}
+		            <p>{{name}}</p>
+		            <p>{{description}}</p>
+		            <p>{{language}}</p>
 		        {{/each}}	     
 	        </div>
         </div>

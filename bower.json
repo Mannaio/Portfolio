@@ -17,6 +17,7 @@
     "bootstrap-sass-official": "~3.3.4",
     "susy": "~2.2.5",
     "breakpoint": "4.6.4",
-    "compass-breakpoint": "*"
+    "compass-breakpoint": "*",
+    "githubjs": "~0.1.3"
   }
 }

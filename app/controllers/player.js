@@ -49,8 +49,8 @@ var PlayerController = Ember.Controller.extend({
                     if (self.get('nextFavorite') != null) {
                         return self.send('selectFavorite', self.get('nextFavorite'), index);
                     };
-                    self.set('favorite.artwork_url', nextFavorite.artwork_url)
-                }
+                    self.set('favorite.artwork_url', nextFavorite.artwork_url);
+                },
             }, function(sound) {
                 self.set('currentFavoriteObject', sound);
                 self.set('isPlaying', true);

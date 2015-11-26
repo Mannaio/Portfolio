@@ -1,8 +1,10 @@
 import DS from 'ember-data';
 
-var User = DS.Model.extend({
+var user = DS.Model.extend({
 	favorite: DS.belongsTo('favorite'),
     username: DS.attr('string')
 });
 
-export default User;
+export default user;
+
+
