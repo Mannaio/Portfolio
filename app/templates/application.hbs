@@ -6,7 +6,13 @@
         </div>
         <div class="content">
             <div class="row">
-                <a class="sidebar__button-open" {{action 'showMenu'}}>Show Menu</a>
+                <header>
+                    <div class="header">
+                        <div class="header__button">
+                            <a class="header__button-open" {{action 'showMenu'}}>Show Menu</a>
+                        </div>
+                    </div>
+                </header>
                 <div class="col-xs-12">
                     {{outlet}}
                 </div>

@@ -32,7 +32,7 @@ img
     transform: translate3d($off-canvas-width-1, 0, 0)
     @include susy-breakpoint($bp-medium, $medium)
       transform: translate3d($off-canvas-width-2, 0, 0)
-    .sidebar__button-open
+    .header__button-open
       display: none
 
 .content 
@@ -40,6 +40,28 @@ img
   @include susy-breakpoint($bp-medium, $medium)
     @include span(16 of 16)
 
+.header
+  @include span(16 nest)
+  @include susy-breakpoint($bp-small-1)
+    padding-left: gutter(15)
+  &__button
+    @include span(2 of 16)
+  &__button-open
+    display: block
+    height: 2.25em
+    background: url("/images/menu.svg") left center no-repeat
+    background-size: 1.875em 1.5em
+    overflow: hidden
+    white-space: nowrap
+    text-indent: 100%
+    filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=70)
+    opacity: 0.6
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0)
+    &:hover
+      opacity: 0.8
+      filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=80)
+    @include susy-breakpoint($bp-minimum, $medium)
+      display: none
 .sidebar 
   @include span(2 of 16 first)
   position: fixed
@@ -68,22 +90,6 @@ img
     -webkit-tap-highlight-color: rgba(0, 0, 0, 0)
     &:hover
       background: url("/images/close-btn-hover.svg") left center no-repeat
-      filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=80)
-    @include susy-breakpoint($bp-minimum, $medium)
-      display: none
-  &__button-open
-    display: block
-    height: 2.25em
-    background: url("/images/menu.svg") left center no-repeat
-    background-size: 1.875em 1.5em
-    overflow: hidden
-    white-space: nowrap
-    text-indent: 100%
-    filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=70)
-    opacity: 0.6
-    -webkit-tap-highlight-color: rgba(0, 0, 0, 0)
-    &:hover
-      opacity: 0.8
       filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=80)
     @include susy-breakpoint($bp-minimum, $medium)
       display: none

@@ -1,32 +1,43 @@
 <div class="row">
     <div class="col-xs-12">
-        <div class="github">
-        	<div class="github__profile">
-        		<div class="github__profile--description">
-        			<h1>Profile</h1>
-	        		<p>
-						Bacon ipsum dolor amet beef ribs ground round shankle, bacon alcatra tri-tip shank short ribs andouille kevin tail chuck salami biltong. Cow pig landjaeger, tongue shankle biltong capicola. Pork loin flank ribeye boudin andouille alcatra. Corned beef swine tongue doner. Tri-tip bresaola meatball, filet mignon kielbasa shankle chicken spare ribs andouille chuck. Beef kielbasa doner turducken, tail turkey t-bone landjaeger picanha venison shank pork belly ham leberkas. Sirloin boudin sausage, andouille bresaola drumstick picanha landjaeger t-bone pastrami fatback short loin kevin.
-						Shank prosciutto sirloin ham hock tenderloin. Drumstick short ribs picanha, corned beef ribeye meatball spare ribs bresaola pig landjaeger strip steak prosciutto meatloaf biltong doner. Leberkas prosciutto doner, shankle filet mignon tenderloin capicola rump turducken. Sirloin rump salami biltong, t-bone ball tip porchetta cow meatloaf fatback jowl doner brisket. Picanha spare ribs sausage pork chop bacon beef alcatra capicola andouille meatball pastrami sirloin. Doner ham hock kevin sausage, porchetta bacon t-bone jowl beef chuck rump landjaeger. Porchetta alcatra tri-tip picanha.
-	        		</p>
-        		</div>
-				<div class="github__profile--company">
-					<h1>Repositories</h1>
-					<p>Company:{{model.gitUsers.company}}</p>
-					<p>Followers:{{model.gitUsers.followers}}</p>
-					<p>Following:{{model.gitUsers.following}}</p>
-					<p>Repositories:{{model.gitUsers.public_repos}}</p>
-					<p>Gists:{{model.gitUsers.public_gists}}</p>
-        		</div>
-	        </div>
-	        <div class="github__activity">
-	        	<h1>GitHub Stats</h1>
-		          {{#each model.repos}}
-		            <p>{{name}}</p>
-		            <p>{{description}}</p>
-		            <p>{{language}}</p>
-		        {{/each}}	     
-	        </div>
-        </div>
+    	<article>
+	        <section class="github">
+	        	<div class="github github__profile">
+	        		<div class="github github__profile--avatar">
+	        			<img {{bind-attr src=model.gitUsers.avatar_url}}>
+	        		</div>
+	        		<div class="github__profile--bio">
+	        			<h1>About</h1>
+						<p>Bacon ipsum dolor amet beef ribs ground round shankle, bacon alcatra tri-tip shank short ribs andouille kevin tail chuck salami biltong. Cow pig landjaeger, tongue shankle biltong capicola. Pork loin flank ribeye boudin andouille alcatra. Bacon ipsum dolor amet beef ribs ground round shankle, bacon alcatra tri-tip shank short ribs andouille kevin tail chuck salami biltong.</p>
+						<h1>Git Info</h1>
+						<p>{{model.gitUsers.login}}</p>
+						<p>{{model.gitUsers.name}}</p>
+						<p>{{model.gitUsers.email}}</p>
+						<p>Company:{{model.gitUsers.company}}</p>
+						<p>Location:{{model.gitUsers.location}}</p>
+						<p>Followers:{{model.gitUsers.followers}}</p>
+						<p>Following:{{model.gitUsers.following}}</p>
+						<p>Repositories:{{model.gitUsers.public_repos}}</p>
+						<p>Gists:{{model.gitUsers.public_gists}}</p>
+					</div>
+				</div>	     
+	        </section>
+			<section class="stream">
+				<div class="stream stream__repos">
+			          {{#each model.repos}}
+			            <p>{{name}}</p>
+			            <p>{{description}}</p>
+			            <p>{{language}}</p>
+			        {{/each}}
+			    </div>
+			    <div class="stream stream__events">
+					<h1>Events</h1>
+		          	{{#each model.events}}
+		            	<p>{{type}}</p>
+		        	{{/each}}
+		        </div>
+			</section>
+    	</article>
     </div>
 </div>
 

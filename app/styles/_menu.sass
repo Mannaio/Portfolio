@@ -19,10 +19,12 @@ $Khula-font: 'Khula', sans-serif;
     font-family: $Khula-font
     font-weight: 100
     position: absolute
-    top: 100px
+    top: 80px
     margin: 0
     padding: 0
     list-style: none
+    @include susy-breakpoint($bp-minimum)
+      top: 100px;
   &__link
     text-decoration: none
     color: $lightgray

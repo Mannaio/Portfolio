@@ -1,12 +1,27 @@
 @include layout(12 split)
 
 .github
-  font-family: $Khula-font
-  @include container
-  &__profile,
-  &__activity
-    @include susy-breakpoint($bp-small)
-        @include span(12 of 12)
-    @include susy-breakpoint($bp-small-1)
-        @include span(6 of 12)
-
+	font-family: $Khula-font
+	@include susy-breakpoint($bp-small-2)
+		padding-top: 10px
+	@include container
+	&__profile,
+	&__activity
+		@include susy-breakpoint($bp-small)
+			@include span(12 of 12)
+	&__activity,
+		@include susy-breakpoint($bp-small-1)
+		    @include span(4 of 12)
+	&__profile
+		&--avatar
+			display: none
+			@include susy-breakpoint($bp-small-2)
+				display: block
+				@include span(2 of 10)
+		&--bio
+			@include susy-breakpoint($bp-small-1)
+				@include span(10 of 10)
+			@include susy-breakpoint($bp-small-2)
+				@include span(8 of 10)
+				h1
+					-webkit-margin-after: 0em	 

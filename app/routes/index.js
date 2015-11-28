@@ -4,10 +4,11 @@ import Ember from 'ember';
 var IndexRoute = Ember.Route.extend({
     visibility: Ember.inject.service('visible'),
     model: function() {
-        var store, userUrl, reposUrl;
+        var store, userUrl, reposUrl, reposAct, eventsAct;
         store = this.get('store');
         userUrl = 'https://api.github.com/users/mannaio';
         reposUrl = 'https://api.github.com/users/mannaio/repos';
+        eventsAct = 'https://api.github.com/users/mannaio/events';
 
         var gituserPromise = function() {
             return Ember.$.ajax(userUrl, {
@@ -15,6 +16,7 @@ var IndexRoute = Ember.Route.extend({
                     return store.createRecord('gituser', {
                         name: data.name,
                         login: data.login,
+                        email: data.email,
                         location: data.location,
                         company: data.company,
                         followers: data.followers,
@@ -42,9 +44,23 @@ var IndexRoute = Ember.Route.extend({
                  reject(reason);
             }});             
         };
+        var gitactivitiesPromise = function() {
+            return Ember.$.ajax(eventsAct, {
+                success: function(events) {
+                    return events.map(function(event) {
+                        return store.createRecord('event', {
+                            name: event.type
+                        });
+                    });
+                },
+                error: function(reason) {
+                 reject(reason);
+            }});             
+        };
         return Ember.RSVP.hash({
             gitUsers: gituserPromise(),
-            repos: gitrepositoriesPromise()
+            repos: gitrepositoriesPromise(),
+            events: gitactivitiesPromise()
         });
 
     },
