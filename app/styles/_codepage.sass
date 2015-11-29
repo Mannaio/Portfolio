@@ -24,4 +24,21 @@
 			@include susy-breakpoint($bp-small-2)
 				@include span(8 of 10)
 				h1
-					-webkit-margin-after: 0em	 
+					-webkit-margin-after: 0em
+.stream
+	font-family: $Khula-font
+	@include container
+	&__events,
+	&__repos,
+	&__git,
+	&__personal
+		@include span(12 of 12)
+		@include susy-breakpoint($bp-small-1)
+			@include span(6 of 12)
+		@include susy-breakpoint($bp-small-2)
+			@include span(3 of 12)
+		// @include susy-breakpoint($bp-medium)
+		// 	@include span(3 of 12)
+	// &__repos
+	// 	@include susy-breakpoint($bp-small-1)
+	// 		@include span(12 of 12)
