@@ -8,15 +8,19 @@
 							<h1>Personal</h1>
 							<p>{{model.gitUsers.login}}</p>
 							<p>{{model.gitUsers.name}}</p>
-							<p>{{model.gitUsers.email}}</p>
+							<p>email: {{model.gitUsers.email}}</p>
 							<p>Company:{{model.gitUsers.company}}</p>
 							<p>Location:{{model.gitUsers.location}}</p>
 			        		</div>
 		        		<div class="github__profile--bio">
 		        			<h1>About</h1>
+							<ul>						
+							  <li><i class="fa fa-envelope-o fa-fw"><span>tmms.vll@gmail.com</span></i></li>
+							  <li><i class="fa fa-envelope-o fa-fw"><span>tmms.vll@gmail.com</span></i></li>
+							</ul>
 							<p>Bacon ipsum dolor amet beef ribs ground round shankle, bacon alcatra tri-tip shank short ribs andouille kevin tail chuck salami biltong. Cow pig landjaeger, tongue shankle biltong capicola. Pork loin flank ribeye boudin andouille alcatra. Bacon ipsum dolor amet beef ribs ground round shankle, bacon alcatra tri-tip shank short ribs andouille kevin tail chuck salami biltong.</p>
 						</div>
-						<div class="stream__git">
+						<div class="stream stream__git">
 							<h1>Git Info</h1>
 							<p>Followers:{{model.gitUsers.followers}}</p>
 							<p>Following:{{model.gitUsers.following}}</p>
@@ -29,7 +33,7 @@
 				            	<p>{{type}}</p>
 				        	{{/each}}
 				        </div>
-						<div class="stream__repos">
+						<div class="stream stream__repos">
 							<h1>Repositories</h1>
 					          {{#each model.repos}}
 					            <p>{{name}}</p>

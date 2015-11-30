@@ -3,7 +3,7 @@
 .github
 	font-family: $Khula-font
 	@include susy-breakpoint($bp-small-2)
-		padding-top: 10px
+		padding-top: 25px
 	@include container
 	&__profile,
 	&__activity
@@ -23,8 +23,6 @@
 				@include span(10 of 10)
 			@include susy-breakpoint($bp-small-2)
 				@include span(8 of 10)
-				h1
-					-webkit-margin-after: 0em
 .stream
 	font-family: $Khula-font
 	@include container
@@ -32,13 +30,13 @@
 	&__repos,
 	&__git,
 	&__personal
-		@include span(12 of 12)
+		@include span(10 of 10)
 		@include susy-breakpoint($bp-small-1)
-			@include span(6 of 12)
+			@include span(4 of 10)
 		@include susy-breakpoint($bp-small-2)
-			@include span(3 of 12)
-		// @include susy-breakpoint($bp-medium)
-		// 	@include span(3 of 12)
-	// &__repos
-	// 	@include susy-breakpoint($bp-small-1)
-	// 		@include span(12 of 12)
+			@include span(3 of 10)
+	&__git
+		@include susy-breakpoint($bp-small-1)
+			@include span(2 of 10)
+		@include susy-breakpoint($bp-small-2)
+			@include span(2 of 10)
