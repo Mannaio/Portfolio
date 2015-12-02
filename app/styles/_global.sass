@@ -42,7 +42,6 @@ img
 
 .header
   @include span(16 nest)
-  @include susy-breakpoint($bp-small-1)
     padding-left: gutter(15)
   &__button
     @include span(2 of 16)
@@ -68,13 +67,14 @@ img
   height: 100%
   border-right: 5px double $lightgray
   border-width: 3px
+  padding: 10px 
   @include susy-breakpoint($bp-medium, $medium)
     left: -150px
-    width: 145px
+    width: 125px
   &__button-close
     position: absolute
     top: 2px
-    left: 2px
+    left: 15px
     display: block
     width: 1.925em
     height: 2.2em
