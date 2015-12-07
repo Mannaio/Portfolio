@@ -23,10 +23,7 @@
 				@include span(8 of 10)
 		&--mobile
 			display: block
-			color: $lightgray
-			span,i 
-				font-size: 14px
-				font-weight: lighter
+			i 
 				margin-right: 5px
 			@include susy-breakpoint($bp-small-2)
 				display: none
@@ -48,3 +45,28 @@
 			@include span(2 of 10)
 		@include susy-breakpoint($bp-small-2)
 			@include span(2 of 10)
+	&__info
+		li:first-child
+			width: 16%
+		li
+			display: inline-block
+			text-align: center
+			width: 26%
+			line-height: 15px
+			padding-right: 2px
+			span.info
+				display: block
+			span.number
+				font-size: 26px
+
+
+
+
+
+
+
+
+
+
+
+

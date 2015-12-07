@@ -5,7 +5,7 @@
 		        	<div class="github github__profile">
 		        		<div class="github github__profile--avatar">
 		        			<img {{bind-attr src=model.gitUsers.avatar_url}}>
-							<h1>Personal</h1>
+							<h2>Personal</h2>
 							<p>{{model.gitUsers.login}}</p>
 							<p>{{model.gitUsers.name}}</p>
 							<p>email: {{model.gitUsers.email}}</p>
@@ -15,26 +15,40 @@
 		        		<div class="github__profile--bio">
 		        			<h1>About</h1>
 							<ul class="github__profile--mobile">						
-							  <li><span><i class="fa fa-envelope-o fa-fw"></i>tmms.vll@gmail.com</span></li>
-							  <li><span><i class="fa fa-map-marker fa-fw"></i>Spain</span></li>
+							  <li><span class="info"><i class="fa fa-envelope-o fa-fw info"></i>{{model.gitUsers.email}}</span></li>
+							  <li><span class="info"><i class="fa fa-map-marker fa-fw"></i>Spain</span></li>
 							</ul>
 							<p>Bacon ipsum dolor amet beef ribs ground round shankle, bacon alcatra tri-tip shank short ribs andouille kevin tail chuck salami biltong. Cow pig landjaeger, tongue shankle biltong capicola. Pork loin flank ribeye boudin andouille alcatra. Bacon ipsum dolor amet beef ribs ground round shankle, bacon alcatra tri-tip shank short ribs andouille kevin tail chuck salami biltong.</p>
 						</div>
 						<div class="stream stream__git">
-							<h1>Git Info</h1>
-							<p>Followers:{{model.gitUsers.followers}}</p>
-							<p>Following:{{model.gitUsers.following}}</p>
-							<p>Repositories:{{model.gitUsers.public_repos}}</p>
-							<p>Gists:{{model.gitUsers.public_gists}}</p>
+							<h2>Git Info</h2>
+							<ul class="stream stream__info">
+								<li>
+									<span class="number">{{model.gitUsers.followers}}</span>
+									<span class="info">Followers</span>
+								</li>
+								<li>
+									<span class="number lightblue">{{model.gitUsers.following}}</span>
+									<span class="info">Following</span>
+								</li>
+								<li>
+									<span class="number orange">{{model.gitUsers.public_gists}}</span>
+									<span class="info">Gists</span>
+								</li>
+								<li>
+									<span class="number darkgray">{{model.gitUsers.public_repos}}</span>
+									<span class="info">Repositories</span>
+								</li>
+							</ul>
 						</div>
 					    <div class="stream stream__events">
-							<h1>Events</h1>
-				          	{{#each model.events}}
-				            	<p>{{type}}</p>
+							<h2>Events</h2>
+				          	{{#each model.commits}}
+				            	<p>{{message}}</p>
 				        	{{/each}}
 				        </div>
 						<div class="stream stream__repos">
-							<h1>Repositories</h1>
+							<h2>Repositories</h2>
 					          {{#each model.repos}}
 					            <p>{{name}}</p>
 					            <p>{{description}}</p>

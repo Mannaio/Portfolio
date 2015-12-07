@@ -44,15 +44,40 @@ var IndexRoute = Ember.Route.extend({
                  reject(reason);
             }});             
         };
+        // var gitactivitiesPromise = function() {
+        //     return Ember.$.ajax(eventsAct, {
+        //         success: function(events) {
+        //             return events.filter(function(event) {
+        //                 return event.type == 'PushEvent';
+        //             }).forEach(function(item){
+        //                 return item.payload.commits.map(function(commit){
+        //                     // return console.log(commit.message);
+        //                     return commit.message;
+        //                 });
+        //             });
+        //             // return events.map(function(event) {
+        //             //     return store.createRecord('event', {
+        //             //         name: event.type
+        //             //     });
+        //             // });
+        //         },
+        //         error: function(reason) {
+        //          reject(reason);
+        //     }});             
+        // };
         var gitactivitiesPromise = function() {
             return Ember.$.ajax(eventsAct, {
                 success: function(events) {
-                    return events.map(function(event) {
-                        return store.createRecord('event', {
-                            name: event.type
+                    return events.filter(function(event) {
+                        return event.type == 'PushEvent';
+                    }).forEach(function(item){
+                        return item.payload.commits.map(function(commit){
+                            return store.createRecord('commit', {
+                                message: commit.message,
+                            });
                         });
                     });
-                },
+                },  
                 error: function(reason) {
                  reject(reason);
             }});             
@@ -60,7 +85,7 @@ var IndexRoute = Ember.Route.extend({
         return Ember.RSVP.hash({
             gitUsers: gituserPromise(),
             repos: gitrepositoriesPromise(),
-            events: gitactivitiesPromise()
+            commits: gitactivitiesPromise()
         });
 
     },
