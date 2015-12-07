@@ -42,12 +42,16 @@
 			@include span(3 of 10)
 	&__git
 		@include susy-breakpoint($bp-small-1)
+			h2
+				text-align: center
 			@include span(2 of 10)
 		@include susy-breakpoint($bp-small-2)
 			@include span(2 of 10)
 	&__info
 		li:first-child
 			width: 16%
+			@include susy-breakpoint($bp-small-1)
+				width: auto
 		li
 			display: inline-block
 			text-align: center
@@ -58,6 +62,10 @@
 				display: block
 			span.number
 				font-size: 26px
+			@include susy-breakpoint($bp-small-1)
+				display: block
+				line-height: normal
+				width: auto
 
 
 
