@@ -115,10 +115,13 @@ var IndexRoute = Ember.Route.extend({
                         events.filter(function(event) {
                     return event.type === 'PushEvent';
                     }).forEach(function(item){
+                        var repoUrl = 'https://github.com/' + item.repo.name;
+                        var authorUrl = 'https://github.com/' + item.actor.login;
                         item.payload.commits.map(function(commit){
                             result.push(store.createRecord('commit', {
                                 message: commit.message,
-                                url: commit.url
+                                commitUrl: repoUrl + '/commit/' + commit.sha,
+                                repositoryUrl: repoUrl
                             }));
                         });
                     });
@@ -130,23 +133,6 @@ var IndexRoute = Ember.Route.extend({
                 });
             });
         };
-        // var gitactivitiesPromise = function() {
-        //     return Ember.$.ajax(eventsAct, {
-        //         success: function(events) {
-        //             return events.filter(function(event) {
-        //                 return event.type == 'PushEvent';
-        //             }).forEach(function(item){
-        //                 return item.payload.commits.map(function(commit){
-        //                     return store.createRecord('commit', {
-        //                         message: commit.message,
-        //                     });
-        //                 });
-        //             });
-        //         },  
-        //         error: function(reason) {
-        //          reject(reason);
-        //     }});             
-        // };
         
         return Ember.RSVP.hash({
             gitUsers: gituserPromise(),

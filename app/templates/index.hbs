@@ -42,10 +42,10 @@
 							</ul>
 						</div>
 					    <div class="stream stream__events">
-							<h2>Events</h2>
+							<h2>Latest Commits</h2>
 				          	{{#each model.commits}}
-				            	<p>{{this.message}}</p>
-				            	<p>{{this.url}}</p>
+				            	<a href="{{this.commitUrl}}">{{this.message}}</a>
+				            	<p>{{this.repositoryUrl}}</p>
 				        	{{/each}}
 				        </div>
 						<div class="stream stream__repos">
