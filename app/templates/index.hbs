@@ -5,21 +5,50 @@
 		        	<div class="github github__profile">
 		        		<div class="github github__profile--avatar">
 		        			<img {{bind-attr src=model.gitUsers.avatar_url}}>
-							<h2>Personal</h2>
+{{!-- 							<ul class="stream stream__info">
+								<li>
+									<span class="number lightblue">{{model.gitUsers.following}}</span>
+									<span class="info">Following</span>
+								</li>
+								<li>
+									<span class="number orange">{{model.gitUsers.followers}}</span>
+									<span class="info">Followers</span>
+								</li>
+								<li>
+									<span class="number darkgray">{{model.gitUsers.public_repos}}</span>
+									<span class="info">Projects</span>
+								</li>
+							</ul> --}}
+
+{{!-- 						<h2>Personal</h2>
 							<p>{{model.gitUsers.login}}</p>
 							<p>{{model.gitUsers.name}}</p>
 							<p>email: {{model.gitUsers.email}}</p>
 							<p>Company:{{model.gitUsers.company}}</p>
-							<p>Location:{{model.gitUsers.location}}</p>
-			        		</div>
+							<p>Location:{{model.gitUsers.location}}</p> --}}
+			        	</div>
 		        		<div class="github__profile--bio">
 		        			<h1>About</h1>
 							<ul class="github__profile--mobile">						
-							  <li><span class="info"><i class="fa fa-envelope-o fa-fw info"></i>{{model.gitUsers.email}}</span></li>
-							  <li><span class="info"><i class="fa fa-map-marker fa-fw"></i>Spain</span></li>
+							 	<li>
+							  		<a class="social-links"><i class="fa fa-at fa-fw"></i></a>
+							  	</li>
+							  	<li>
+							  		<a class="social-links"><i class="fa fa-linkedin fa-fw"></i></a>
+							  	</li>
+							  	<li>
+							  		<a class="social-links"><i class="fa fa-github fa-fw"></i></a>
+							  	</li>
+								<li>
+							  		<a class="social-links"><i class="fa fa-twitter fa-fw"></i></a>
+							  	</li>
 							</ul>
 							<p>Bacon ipsum dolor amet beef ribs ground round shankle, bacon alcatra tri-tip shank short ribs andouille kevin tail chuck salami biltong. Cow pig landjaeger, tongue shankle biltong capicola. Pork loin flank ribeye boudin andouille alcatra. Bacon ipsum dolor amet beef ribs ground round shankle, bacon alcatra tri-tip shank short ribs andouille kevin tail chuck salami biltong.</p>
 						</div>
+					</div>
+				</section>
+				<section>
+					<div>
 						<div class="stream stream__git">
 							<h2>Git Info</h2>
 							<ul class="stream stream__info">

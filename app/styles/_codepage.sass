@@ -22,11 +22,11 @@
 			@include susy-breakpoint($bp-small-2)
 				@include span(8 of 10)
 		&--mobile
-			display: block
-			i 
-				margin-right: 5px
-			@include susy-breakpoint($bp-small-2)
-				display: none
+			display: inline-block
+			li
+				float: left
+			// @include susy-breakpoint($bp-small-2)
+			// 	display: none
 
 .stream
 	font-family: $Khula-font
@@ -39,7 +39,7 @@
 		@include susy-breakpoint($bp-small-1)
 			@include span(4 of 10)
 		@include susy-breakpoint($bp-small-2)
-			@include span(3 of 10)
+			@include span(4 of 10)
 	&__git
 		@include susy-breakpoint($bp-small-1)
 			h2
