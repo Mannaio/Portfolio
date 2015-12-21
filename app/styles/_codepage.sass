@@ -14,13 +14,19 @@
 		padding-top: 20px
 		&--avatar
 			display: none
+			background: url('http://s15.postimg.org/enka9g7qz/GOPR0393.png') no-repeat center center
+			-webkit-background-size: cover;
+			-moz-background-size: cover;
+			-o-background-size: cover;
+			background-size: cover;
+			height: 200px
 			@include susy-breakpoint($bp-small-2)
 				display: block
-				@include span(2 of 10)
+				@include span(3 of 10)
 		&--bio
 			@include span(10 of 10)
 			@include susy-breakpoint($bp-small-2)
-				@include span(8 of 10)
+				@include span(7 of 10)
 		&--mobile
 			display: inline-block
 			li
@@ -48,23 +54,40 @@
 		@include susy-breakpoint($bp-small-2)
 			@include span(2 of 10)
 	&__info
+		border-left: 1px solid $lightgray
+		margin-top: 30px
+		margin-left: 10px
 		li:first-child
 			width: 16%
 			@include susy-breakpoint($bp-small-1)
 				width: auto
 		li
 			display: inline-block
-			text-align: center
 			width: 26%
-			line-height: 15px
+			line-height: 23px
 			padding-right: 2px
+			position: relative
+			span.number,
 			span.info
-				display: block
+				font-size: 18px
+				margin-left: 20px
 			span.number
-				font-size: 26px
+				font-size: 14px
+			span.info,
+				display: block
+				font-size: 14px
+				margin-top: 5px
+				margin-bottom: 5px
+			span.element
+				position: absolute
+				height: 8px
+				width: 8px
+				background: red
+				border-radius: 50%
+				left: -4px
+				top: 3px
 			@include susy-breakpoint($bp-small-1)
 				display: block
-				line-height: normal
 				width: auto
 
 
