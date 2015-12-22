@@ -54,38 +54,42 @@
 		@include susy-breakpoint($bp-small-2)
 			@include span(3 of 10)
 	&__info
-		border-left: 1px solid $lightgray
-		margin-top: 30px
-		margin-left: 10px
-		li:first-child
-			width: 16%
-			@include susy-breakpoint($bp-small-1)
-				width: auto
+		border-left: none
+		@include susy-breakpoint($bp-small-1)
+			border-left: 1px solid $lightgray
+			margin-top: 30px
+			margin-left: 10px
 		li
+			width: 48%
 			display: inline-block
-			width: 26%
+			position: relative
 			line-height: 23px
 			padding-right: 2px
-			position: relative
+			@include susy-breakpoint($bp-small-1)
+				width: 26%
 			span.number,
 			span.info
 				font-size: 18px
-				margin-left: 20px
+				margin-left: 3px
+				@include susy-breakpoint($bp-small-1)
+					margin-left: 20px
 			span.number
 				font-size: 14px
 			span.info,
 				display: block
 				font-size: 14px
-				margin-top: 5px
-				margin-bottom: 5px
+				margin-bottom: 10px
 			span.element
+				display: none
 				position: absolute
 				height: 8px
 				width: 8px
 				background: red
 				border-radius: 50%
 				left: -4px
-				top: 3px
+				top: 0px
+				@include susy-breakpoint($bp-small-1)
+					display: block
 			@include susy-breakpoint($bp-small-1)
 				display: block
 				width: auto
