@@ -78,7 +78,7 @@
 				          	{{#each model.commits}}
 				            	<a href="{{this.commitUrl}}">{{this.message}}</a>
 				            	<p>{{this.repositoryUrl}}</p>
-				            	<p>{{this.date}}</p>
+				            	<p>{{format-date this.date}}</p>
 				        	{{/each}}
 				        </div>
 						<div class="stream stream__repos">
