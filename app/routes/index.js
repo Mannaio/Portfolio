@@ -119,6 +119,7 @@ var IndexRoute = Ember.Route.extend({
                         var authorUrl = 'https://github.com/' + item.actor.login;
                         item.payload.commits.map(function(commit){
                             result.push(store.createRecord('commit', {
+                                date: item.created_at,
                                 message: commit.message,
                                 commitUrl: repoUrl + '/commit/' + commit.sha,
                                 repositoryUrl: repoUrl

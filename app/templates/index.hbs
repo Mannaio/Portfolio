@@ -78,15 +78,16 @@
 				          	{{#each model.commits}}
 				            	<a href="{{this.commitUrl}}">{{this.message}}</a>
 				            	<p>{{this.repositoryUrl}}</p>
+				            	<p>{{this.date}}</p>
 				        	{{/each}}
 				        </div>
 						<div class="stream stream__repos">
 							<h2>Repositories</h2>
-					          {{#each model.repos}}
-					            <p>{{name}}</p>
-					            <p>{{description}}</p>
-					            <p>{{language}}</p>
-					        {{/each}}
+								{{#each model.repos}}
+					            	<p>{{name}}</p>
+					            	<p>{{description}}</p>
+					            	<p>{{language}}</p>
+					        	{{/each}}
 					    </div>
 					</div>	     
 		        </section>
