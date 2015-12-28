@@ -13,12 +13,8 @@
 	&__profile
 		padding-top: 20px
 		&--avatar
+			@include cover-background('http://s15.postimg.org/enka9g7qz/GOPR0393.png')
 			display: none
-			background: url('http://s15.postimg.org/enka9g7qz/GOPR0393.png') no-repeat center center
-			-webkit-background-size: cover;
-			-moz-background-size: cover;
-			-o-background-size: cover;
-			background-size: cover;
 			height: 200px
 			@include susy-breakpoint($bp-small-2)
 				display: block
@@ -31,8 +27,6 @@
 			display: inline-block
 			li
 				float: left
-			// @include susy-breakpoint($bp-small-2)
-			// 	display: none
 
 .stream
 	font-family: $Khula-font
@@ -53,6 +47,12 @@
 			@include span(3 of 10)
 		@include susy-breakpoint($bp-small-2)
 			@include span(3 of 10)
+	&__events
+		a
+			display: block
+		a.repository
+			text-decoration: none
+			color: $darkgray
 	&__info
 		border-left: none
 		@include susy-breakpoint($bp-small-1)
@@ -84,7 +84,7 @@
 				position: absolute
 				height: 8px
 				width: 8px
-				background: red
+				background: $orange
 				border-radius: 50%
 				left: -4px
 				top: 0px

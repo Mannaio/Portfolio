@@ -24,3 +24,14 @@ $off-canvas-width-2: 150px;
 $off-canvas-width-1: 0px;
 $Khula-font: 'Khula', sans-serif;
 
+// -----------------------------------------------------------------------------
+// Different Mixins
+// -----------------------------------------------------------------------------
+
+@mixin cover-background($img-uri) 
+    background: url($img-uri) no-repeat center center 
+    -webkit-background-size: cover
+    -moz-background-size: cover
+    -o-background-size: cover
+    background-size: cover
+

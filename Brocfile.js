@@ -7,7 +7,7 @@ var EmberApp = require('ember-cli/lib/broccoli/ember-app');
 var app = new EmberApp();
 
 app.import('bower_components/bootstrap-sass-official/assets/javascripts/bootstrap.js');
-app.import('bower_components/githubjs/dist/github.min.js');
+app.import('bower_components/moment/moment.js');
 
 var fontTree = pickFiles('bower_components/font-awesome/fonts', {
     srcDir: '/',
