@@ -93,6 +93,8 @@ var IndexRoute = Ember.Route.extend({
                         var result = [];
                         repos.map(function(repo) {
                             result.push(store.createRecord('repo', {
+                                created_at: repo.created_at,
+                                html_url: repo.html_url,
                                 name: repo.name,
                                 description: repo.description,
                                 language: repo.language

@@ -63,9 +63,10 @@
 						<div class="stream stream__repos">
 							<h2>Repositories</h2>
 								{{#each model.repos}}
-					            	<p>{{name}}</p>
-					            	<p>{{description}}</p>
-					            	<p>{{language}}</p>
+					            	<a href="{{html_url}}" class="repository">{{name}}</a>
+					            	<p class="info">{{description}}</p>
+					            	<p class="tags">{{language}}</p>
+					            	<p class="date">{{format-date created_at}}</p>
 					        	{{/each}}
 					    </div>
 					</div>	     
