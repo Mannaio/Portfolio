@@ -2,7 +2,8 @@ import Ember from 'ember';
 
 var IndexController = Ember.Controller.extend({
     errorText: null,
-    avatarUrl: 'http://s9.postimg.org/531zkzcxb/me_min.png'
+    sortProperties: ['created_at:desc'],
+    sortedRepos: Ember.computed.sort('model.repos', 'sortProperties')
 });
 
 export default IndexController;

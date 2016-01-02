@@ -47,13 +47,16 @@
 			@include span(3 of 10)
 		@include susy-breakpoint($bp-small-2)
 			@include span(3 of 10)
-	&__events,
-	&__repos
-		a
-			display: block
-		a.repository
-			text-decoration: none
-			color: $darkgray
+	&__repos,
+	&__events
+		&--repo,
+		&--event
+			margin-bottom: 10px
+			a
+				display: block
+			a.repository
+				text-decoration: none
+				color: $darkgray
 	&__info
 		border-left: none
 		@include susy-breakpoint($bp-small-1)

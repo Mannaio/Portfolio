@@ -55,19 +55,23 @@
 					    <div class="stream stream__events">
 							<h2>Latest Commits</h2>
 				          	{{#each model.commits}}
-				            	<a class="repository" href="{{this.repositoryUrl}}">{{this.name}}</a>
-								<a class="info" href="{{this.commitUrl}}">{{this.message}}</a>
-				            	<p class="date">{{format-date this.date}}</p>
+				          		<div class="stream stream__repos--event">
+					            	<a class="repository" href="{{this.repositoryUrl}}">{{this.name}}</a>
+									<a class="info" href="{{this.commitUrl}}">{{this.message}}</a>
+					            	<p class="date">{{format-date this.date}}</p>
+					            </div>
 				        	{{/each}}
 				        </div>
 						<div class="stream stream__repos">
 							<h2>Repositories</h2>
-								{{#each model.repos}}
-					            	<a href="{{html_url}}" class="repository">{{name}}</a>
-					            	<p class="info">{{description}}</p>
-					            	<p class="tags">{{language}}</p>
-					            	<p class="date">{{format-date created_at}}</p>
-					        	{{/each}}
+							{{#each sortedRepos}}
+								<div class="stream stream__repos--repo">
+				            		<a href="{{html_url}}" class="repository">{{name}}</a>
+				            		<p class="info">{{description}}</p>
+				            		<p class="tags">{{language}}</p>
+				            		<p class="date">{{format-date created_at}}</p>
+				            	</div>
+				        	{{/each}}
 					    </div>
 					</div>	     
 		        </section>
