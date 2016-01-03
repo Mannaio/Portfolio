@@ -9,63 +9,6 @@ var IndexRoute = Ember.Route.extend({
         reposUrl = 'https://api.github.com/users/mannaio/repos';
         eventsAct = 'https://api.github.com/users/mannaio/events';
 
-        // var gituserPromise = function() {
-        //     return new Ember.RSVP.Promise(function(resolve, reject) {
-        //         return Ember.$.getJSON(userUrl, function(data) {
-        //             var item = [];
-        //             gituser.setProperties({
-        //                 name: data.name,
-        //                 login: data.login,
-        //                 location: data.location,
-        //                 company: data.company,
-        //                 followers: data.followers,
-        //                 following: data.following
-        //             });
-        //             item.pushObject(gituser);
-        //             return resolve(item);
-        //         });
-        //     });
-        // };
-
-        // var gituserPromise = function() {
-        //     return new Ember.RSVP.Promise(function (resolve) {
-        //         return Ember.$.ajax(userUrl, function(data) {
-        //             var item = [];
-        //             gituser.setProperties({
-        //                 name: data.name,
-        //                 login: data.login,
-        //                 location: data.location,
-        //                 company: data.company,
-        //                 followers: data.followers,
-        //                 following: data.following,
-        //                 email: data.email
-        //             });
-        //             item.pushObject(gituser);
-        //             return resolve(item);
-        //         });
-        //     });
-        // };
-
-
-        // var gituserPromise = function() {
-        //     return new Ember.RSVP.Promise(function (resolve) {
-        //         return Ember.$.ajax(userUrl, {
-        //             success: function(data) {               
-        //                 var item = [];
-        //                 item.push(store.createRecord('gituser', {
-        //                     name: data.name,
-        //                     login: data.login,
-        //                     email: data.email,
-        //                 }));
-        //                 resolve(item);
-        //            },
-        //             error: function(reason) {
-        //              reject(reason);
-        //            }});
-        //     });
-        // };
-
-
         var gituserPromise = function() {
             return Ember.$.ajax(userUrl, {
                 success: function(data) {               
