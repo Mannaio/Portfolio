@@ -37,6 +37,9 @@ var PhotographyRoute = Ember.Route.extend({
             farm: photo.farm,
         });
     },
+    resetStore: function() {
+        this.store.unloadAll('photo');
+    },
 });
 
 export default PhotographyRoute;
