@@ -1,6 +1,6 @@
 import DS from 'ember-data';
 
-var photo = DS.Model.extend({
+var img = DS.Model.extend({
 	owner: DS.attr('string'),
 	secret: DS.attr('string'),
 	server: DS.attr('string'),
@@ -8,6 +8,6 @@ var photo = DS.Model.extend({
 	farm: DS.attr('string'),
 });
 
-export default photo;
+export default img;
 
 
