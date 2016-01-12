@@ -14,6 +14,7 @@ var PhotographyRoute = Ember.Route.extend({
                     var result = [];
                     data.photos.photo.map(function(img){
                         self.resetStore();
+                        var imgUrl = 'http://farm6.staticflickr.com/' + img.server + '/' + img.id + '_' + img.secret + '.jpg'; 
                         result.push(store.createRecord('img', {
                             id: img.id,
                             owner: img.owner,
@@ -21,6 +22,7 @@ var PhotographyRoute = Ember.Route.extend({
                             server: img.server,
                             title: img.title,
                             farm: img.farm,
+                            imgLink: imgUrl
                         }));
                     });
                     resolve(result);

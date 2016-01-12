@@ -2,8 +2,7 @@
     <div class="col-xs-12">
         <div class="recommendations">
         	{{#each model}}
-            	<p>{{owner}}</p>
-            	<p>{{id}}</p>
+            	<img {{bind-attr src=imgLink}}>
             {{/each}}
         </div>
     </div>

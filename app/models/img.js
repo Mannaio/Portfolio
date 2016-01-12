@@ -6,6 +6,7 @@ var img = DS.Model.extend({
 	server: DS.attr('string'),
 	title: DS.attr('string'),
 	farm: DS.attr('string'),
+	imgLink: DS.attr('string')
 });
 
 export default img;
