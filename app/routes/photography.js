@@ -30,16 +30,6 @@ var PhotographyRoute = Ember.Route.extend({
             });
         });
     },
-    // createPhotolist: function(photo) {
-    //     return this.store.createRecord('photo', {
-    //         id: photo.id,
-    //         owner: photo.owner,
-    //         secret: photo.secret,
-    //         server: photo.server,
-    //         title: photo.title,
-    //         farm: photo.farm,
-    //     });
-    // },
     resetStore: function() {
         this.store.unloadAll('img');
     },

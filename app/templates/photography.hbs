@@ -1,9 +1,11 @@
-<div class="row">
-    <div class="col-xs-12">
-        <div class="recommendations">
-        	{{#each model}}
-            	<img {{bind-attr src=imgLink}}>
-            {{/each}}
-        </div>
-    </div>
-</div>
+{{!-- <section class="photo">
+	{{#each model}}
+		<article class="photo__flickr">
+    		<img {{bind-attr src=imgLink}}>
+    		<div class="photo__title">
+    			<span class="photo__text">{{title}}</span>
+    		</div>
+    	</article>
+    {{/each}}	
+</section> --}}
+{{masonry-plugin}}

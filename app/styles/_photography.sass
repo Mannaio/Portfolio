@@ -1,0 +1,15 @@
+@include layout(12 split)
+
+.photo
+  font-family: $Khula-font
+  padding: 8px
+  @include container
+  &__flickr
+    float: left
+    width: 50%
+    @include susy-breakpoint($bp-small)
+        @include span(12 of 12)
+    @include susy-breakpoint($bp-small-1)
+        @include span(6 of 12)
+    @include susy-breakpoint($bp-maximum)
+        @include span(4 of 12)
