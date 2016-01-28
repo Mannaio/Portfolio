@@ -1,7 +1,7 @@
 {
   "name": "ember-soundcloud",
   "dependencies": {
-    "jquery": "^1.11.1",
+    "jquery": "^2.1",
     "ember": "~1.13.7",
     "ember-data": "1.0.0-beta.18",
     "ember-resolver": "~0.1.12",
@@ -19,6 +19,8 @@
     "breakpoint": "4.6.4",
     "compass-breakpoint": "*",
     "githubjs": "~0.1.3",
-    "moment": "~2.10.6"
+    "moment": "~2.10.6",
+    "imagesloaded": "~4.1.0",
+    "masonry": "~4.0.0"
   }
 }
