@@ -83,15 +83,36 @@
 				display: block
 				font-size: 14px
 				margin-bottom: 10px
-			span.element
+			.circle
+				@include circle
 				display: none
-				position: absolute
-				height: 8px
-				width: 8px
-				background: $orange
-				border-radius: 50%
-				left: -4px
-				top: 0px
+				@include susy-breakpoint($bp-small-1)
+					display: block
+			.element
+				display: none
+				overflow: hidden
+				&__emitter,
+					position: absolute
+					width: 9px
+					height: 9px
+					border-radius: 50%
+					background-color: $orange
+					z-index: 0
+					display: block
+					left: -5px
+					&:after
+						position: absolute
+						top: -2px
+						left: -3px
+						width: 15px
+						height: 15px
+						border-radius: 50%
+						content: ''
+						background-color: $orange
+						z-index: -1
+						pointer-events: none
+						opacity: 0
+						animation: sonarWave 2s linear infinite
 				@include susy-breakpoint($bp-small-1)
 					display: block
 			@include susy-breakpoint($bp-small-1)
@@ -99,6 +120,13 @@
 				width: auto
 
 
+@keyframes sonarWave 
+  from 
+    opacity: 0.5
+  to 
+    transform: scale(2.5)
+    opacity: 0
+  
 
 
 

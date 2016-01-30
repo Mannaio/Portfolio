@@ -106,8 +106,8 @@ export default Ember.Component.extend({
   },
 
   afterRenderEvent : function(){
-    var $grid = this.$('.grid').masonry({
-      itemSelector: '.grid-item',
+    var $grid = this.$('.photo').masonry({
+      itemSelector: '.photo__item',
       percentPosition: true
     });
     // layout Isotope after each image loads

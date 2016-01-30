@@ -16,24 +16,80 @@
 
 
 /* clear fix */
-.grid:after 
-  content: ''
-  display: block
-  clear: both
+// .grid
+//   margin: 10px
+//   letter-spacing: normal
+//   @include susy-breakpoint($bp-medium)
+//     padding-top: 30px
+
+// .photo:after 
+//   content: ''
+//   display: block
+//   clear: both
+//   margin: 10px
 
 
 /* ---- .grid-item ---- */
 
-.grid-sizer
-.grid-item 
-  width: 33.333%
+// .photo__sizer
+// .photo__item
+//   width: 33.333%
 
 
-.grid-item 
-  float: left
+// .photo__item
+//   float: left
 
 
-.grid-item
-  img 
+// .photo__item
+//   img 
+//     display: block
+//     max-width: 98%
+
+.grid
+  margin: 10px
+  letter-spacing: normal
+  @include susy-breakpoint($bp-medium)
+    padding-top: 30px
+
+.photo
+  font-family: $Khula-font
+  &:after
+    content: ''
     display: block
-    max-width: 100%
+    clear: both
+    margin: 10px
+  &__item
+    width: 33.333%
+    float: left
+    &--title
+      position: absolute
+      background: white
+      width: 100%
+      opacity: 0
+      display: block
+      font-size: 12px
+      text-align: center
+      @include transition(top .5s)
+      top: -1px
+      line-height: 4
+    &:hover &--title
+      opacity: 0.8
+      top: 0
+      height: 45px      
+    img
+      display: block
+      max-width: 98%
+
+
+
+
+
+
+
+
+
+
+
+
+
+

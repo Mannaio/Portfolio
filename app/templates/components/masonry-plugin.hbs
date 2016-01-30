@@ -1,8 +1,9 @@
-<div class="grid">
-	<div class="grid-sizer"></div>
+<div class="photo">
+	<div class="photo__sizer"></div>
 	{{#each model}}
-		<div class="grid-item">
+		<div class="photo__item">
 		  <img {{bind-attr src=imgLink}}>
+		  <p class="photo__item--title">{{title}}</p>
 		</div>
 	 {{/each}}
 </div>
