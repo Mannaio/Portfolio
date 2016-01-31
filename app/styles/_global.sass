@@ -28,8 +28,13 @@ img
   @extend .info 
   font-size: 22px
   margin-right: 10px
+  @include transition(all 0.2s ease-out)
   i
     width: auto
+    @include transition(all 0.2s ease-out)
+  &:hover
+    i
+      color: $darkgray
 
 .white
   color: $white 

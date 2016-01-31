@@ -1,4 +1,4 @@
-// @include layout(12 split)
+@include layout(12 split)
 
 // .photo
 //   font-family: $Khula-font
@@ -53,14 +53,22 @@
 
 .photo
   font-family: $Khula-font
+  @include container
   &:after
     content: ''
     display: block
     clear: both
     margin: 10px
   &__item
-    width: 33.333%
     float: left
+    @include susy-breakpoint($bp-small)
+        @include span(12 of 12)
+    @include susy-breakpoint($bp-small-1)
+        @include span(6 of 12)
+    @include susy-breakpoint($bp-maximum)
+        // @include span(4 of 12)
+        width: 31.3%
+        float: left
     &--title
       position: absolute
       background: white
@@ -78,7 +86,7 @@
       height: 45px      
     img
       display: block
-      max-width: 98%
+      border-top: 10px solid $white
 
 
 

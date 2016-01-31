@@ -20,13 +20,18 @@
 				display: block
 				@include span(3 of 10)
 		&--bio
+			font-size: 14px
 			@include span(10 of 10)
 			@include susy-breakpoint($bp-small-2)
 				@include span(7 of 10)
-		&--mobile
+		&--mobile,
+		&--tags
 			display: inline-block
 			li
 				float: left
+		&--tags
+			li
+				margin-right: 5px
 
 .stream
 	font-family: $Khula-font
@@ -55,6 +60,7 @@
 			a
 				display: block
 			a.repository
+				font-size: 16px
 				text-decoration: none
 				color: $darkgray
 	&__info
@@ -78,7 +84,7 @@
 				@include susy-breakpoint($bp-small-1)
 					margin-left: 20px
 			span.number
-				font-size: 14px
+				font-size: 16px
 			span.info,
 				display: block
 				font-size: 14px
