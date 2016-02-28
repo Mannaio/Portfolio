@@ -88,6 +88,8 @@ template
 p
   -webkit-margin-before: 0
   -webkit-margin-after: 0
+  -moz-margin-before: 0;
+  -moz-margin-after: 0;
 
 a
   background-color: transparent
@@ -132,19 +134,21 @@ dfn
 
 h1
   font-size: 2em
-  margin: 0.67em 0
+  margin: 0
   -webkit-margin-before: 0
   -webkit-margin-after: 0 
 
 // List Element
 
-ul
+ul,p
+  -moz-padding-start: 0;
   -webkit-padding-start: 0
   -webkit-margin-before: 0
   -webkit-margin-after: 0
-  -moz-padding-start: 0
+  -moz-margin-before: 0
+  -moz-margin-after: 0
   list-style-type: none
-  margin-left: 0
+  margin: 0
 
 //
 // Address styling not present in IE 8/9.

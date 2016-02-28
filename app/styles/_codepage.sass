@@ -67,28 +67,30 @@
 		border-left: none
 		@include susy-breakpoint($bp-small-1)
 			border-left: 1px solid $lightgray
-			margin-top: 30px
+			margin-top: 25px
 			margin-left: 10px
 		li
 			width: 48%
-			display: inline-block
+			display: inline-table
 			position: relative
-			line-height: 23px
-			padding-right: 2px
+			margin-bottom: 15px
 			@include susy-breakpoint($bp-small-1)
 				width: 26%
-			span.number,
-			span.info
+			.number,
+			.info,
+			.location
 				font-size: 18px
 				margin-left: 3px
 				@include susy-breakpoint($bp-small-1)
 					margin-left: 20px
-			span.number
+			.number
 				font-size: 16px
-			span.info,
+			.info,
+			.location
 				display: block
 				font-size: 14px
-				margin-bottom: 10px
+			.location
+				font-size: 12px
 			.circle
 				@include circle
 				display: none
