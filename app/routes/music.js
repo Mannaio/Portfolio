@@ -12,10 +12,6 @@ var MusicRoute = Ember.Route.extend({
                 this.controllerFor('player').get('currentFavoriteObject').destruct();
                 return controller;
             };
-            // debugger;
-            // this._super(controller);
-            // this.controllerFor('player').set('isPlaying', false);
-            // return controller;
         }
     },
     beforeModel: function() {

@@ -28,6 +28,7 @@ img
   display: inline-block
   background: $lightblue
   padding: 0px 5px
+  height: 14px
 
 .social-links
   @extend .info 
@@ -84,7 +85,6 @@ img
       display: none
 
 .content
-  padding: 5px
   @include span(14 of 16 last)
   @include susy-breakpoint($bp-medium, $medium)
     @include span(16 of 16)
@@ -112,6 +112,7 @@ img
       display: none
 .sidebar 
   @include span(2 of 16 first)
+  max-width: 230px
   position: fixed
   height: 100vh
   border-right: 5px double $lightgray
