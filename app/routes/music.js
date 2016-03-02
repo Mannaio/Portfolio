@@ -5,6 +5,19 @@ var MusicRoute = Ember.Route.extend({
     isVisible: false,
     player: Ember.computed.alias('controllers.player'),
     visibility: Ember.inject.service('visible'),
+    actions: {
+        willTransition: function willTransition(controller) {
+            this._super(controller);
+            if (this.controllerFor('player').get('isPlaying', true)) {
+                this.controllerFor('player').get('currentFavoriteObject').destruct();
+                return controller;
+            };
+            // debugger;
+            // this._super(controller);
+            // this.controllerFor('player').set('isPlaying', false);
+            // return controller;
+        }
+    },
     beforeModel: function() {
         return SC.initialize({
             client_id: window.soundcloud_api_key,
