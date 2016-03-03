@@ -20,6 +20,7 @@
 			@include susy-breakpoint($bp-small-2)
 				display: block
 				@include span(3 of 10)
+				margin-left: gutter(0px)
 		&--bio
 			font-size: 14px
 			@include span(10 of 10)
@@ -48,8 +49,6 @@
 			@include span(3 of 10)
 	&__git
 		@include susy-breakpoint($bp-small-1)
-			h2
-				text-align: center
 			@include span(3 of 10)
 		@include susy-breakpoint($bp-small-2)
 			@include span(3 of 10)
