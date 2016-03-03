@@ -1,4 +1,5 @@
 <section class="streaming__favorites">
+    <div class="alert">If you are using Chrome, deactivate the flash plugin at chrome://plugins/ to listen the music</div>
     {{#each favorite in sortedFavorites itemController='playlist'}}
         {{#if favorite.formattedArtwork}}
             <article class="streaming__favorites__song">

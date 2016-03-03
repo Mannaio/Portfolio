@@ -42,6 +42,13 @@ img
     i
       color: $darkgray
 
+.alert
+  text-align: center
+  border: 1px solid $orange
+  font-size: 12px
+  padding: 5px
+  margin-top: 25px
+
 .white
   color: $white 
 
@@ -79,8 +86,12 @@ img
   @include transition(all 0.2s ease)
   &.open 
     transform: translate3d($off-canvas-width-1, 0, 0)
+    -webkit-transform: translate3d($off-canvas-width-1, 0, 0); /* Ch <36, Saf 5.1+, iOS < 9.2, An =<4.4.4 */
+    -ms-transform: translate3d($off-canvas-width-1, 0, 0); /* IE 9 */
     @include susy-breakpoint($bp-medium, $medium)
       transform: translate3d($off-canvas-width-2, 0, 0)
+      -webkit-transform: translate3d($off-canvas-width-2, 0, 0); /* Ch <36, Saf 5.1+, iOS < 9.2, An =<4.4.4 */
+      -ms-transform: translate3d($off-canvas-width-2, 0, 0); /* IE 9 */
     .header__button-open
       display: none
 
@@ -112,19 +123,21 @@ img
       display: none
 .sidebar 
   @include span(2 of 16 first)
-  max-width: 230px
+  max-width: 200px
   position: fixed
-  height: 100vh
+  top: 0
+  bottom: 0
+  left: 0
   border-right: 5px double $lightgray
   border-width: 3px
-  padding: 5px 
+  padding: 5px
   @include susy-breakpoint($bp-medium, $medium)
     left: -150px
     width: 125px
   &__button-close
     position: absolute
     top: 2px
-    left: 15px
+    left: 10px
     display: block
     width: 1.925em
     height: 2.2em
@@ -195,10 +208,8 @@ img
 
 .loading-spinner
   font-size: 200px
-  height: 200px
-  left: 50%
-  margin-left: -90px
+  margin-left: 35%
   margin-top: 15px
-  position: absolute
   width: 175px
+  height: 100vh
 
