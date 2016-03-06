@@ -2,7 +2,6 @@
     <div {{bindAttr class=":container showMenu::open"}}>
         <div class="sidebar">
             {{outlet 'menu'}}
-        <a class="sidebar__button-close" {{action 'showMenu'}}>Close Menu</a>
         </div>
         <div class="content">
             <div class="row">
@@ -10,6 +9,7 @@
                     <div class="header">
                         <div class="header__button">
                             <a class="header__button-open" {{action 'showMenu'}}>Show Menu</a>
+                            <a class="header__button-close" {{action 'showMenu'}}>Close Menu</a>
                         </div>
                     </div>
                 </header>

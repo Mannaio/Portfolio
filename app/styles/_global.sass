@@ -47,7 +47,6 @@ img
   border: 1px solid $orange
   font-size: 12px
   padding: 5px
-  margin-top: 25px
 
 .white
   color: $white 
@@ -83,17 +82,23 @@ img
 
 .container
   @include container
-  @include transition(all 0.2s ease)
+  @include transition(all 0.1s ease)
+  .header__button-close
+    display: none
   &.open 
-    transform: translate3d($off-canvas-width-1, 0, 0)
-    -webkit-transform: translate3d($off-canvas-width-1, 0, 0); /* Ch <36, Saf 5.1+, iOS < 9.2, An =<4.4.4 */
-    -ms-transform: translate3d($off-canvas-width-1, 0, 0); /* IE 9 */
+    transform: translate($off-canvas-width-1)
+    -webkit-transform: translate($off-canvas-width-1); /* Ch <36, Saf 5.1+, iOS < 9.2, An =<4.4.4 */
+    -ms-transform: translate($off-canvas-width-1); /* IE 9 */
     @include susy-breakpoint($bp-medium, $medium)
-      transform: translate3d($off-canvas-width-2, 0, 0)
-      -webkit-transform: translate3d($off-canvas-width-2, 0, 0); /* Ch <36, Saf 5.1+, iOS < 9.2, An =<4.4.4 */
-      -ms-transform: translate3d($off-canvas-width-2, 0, 0); /* IE 9 */
-    .header__button-open
+      margin-left: 150px
+    .header__button-open,
       display: none
+    .header__button-close
+      display: block
+    @include susy-breakpoint($bp-minimum)
+      .header__button-close
+        display: none      
+
 
 .content
   @include span(14 of 16 last)
@@ -103,24 +108,48 @@ img
 .header
   @include span(16 nest)
     padding-left: gutter(15)
+    height: 40px
+    @include susy-breakpoint($bp-minimum)
+      height: 20px
   &__button
     @include span(2 of 16)
   &__button-open
     display: block
     height: 2.25em
     background: url("/images/menu.svg") left center no-repeat
-    background-size: 1.875em 1.5em
+    background-size: 1.475em 2em
     overflow: hidden
     white-space: nowrap
     text-indent: 100%
     filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=70)
     opacity: 0.6
     -webkit-tap-highlight-color: rgba(0, 0, 0, 0)
+    @include susy-breakpoint($bp-minimum, $medium)
+      display: none
     &:hover
       opacity: 0.8
       filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=80)
+  &__button-close
+    position: absolute
+    top: 2px
+    left: 2px
+    width: 1.925em
+    height: 2.2em
+    padding: 0
+    border: 0
+    outline: none
+    background: url("/images/close-btn.svg") left center no-repeat
+    overflow: hidden
+    white-space: nowrap
+    text-indent: 100%
+    filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=60)
+    opacity: 0.8
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0)
     @include susy-breakpoint($bp-minimum, $medium)
       display: none
+    &:hover
+      background: url("/images/close-btn-hover.svg") left center no-repeat
+      filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=80)
 .sidebar 
   @include span(2 of 16 first)
   max-width: 200px
@@ -134,28 +163,6 @@ img
   @include susy-breakpoint($bp-medium, $medium)
     left: -150px
     width: 125px
-  &__button-close
-    position: absolute
-    top: 2px
-    left: 10px
-    display: block
-    width: 1.925em
-    height: 2.2em
-    padding: 0
-    border: 0
-    outline: none
-    background: url("/images/close-btn.svg") left center no-repeat
-    overflow: hidden
-    white-space: nowrap
-    text-indent: 100%
-    filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=60)
-    opacity: 0.8
-    -webkit-tap-highlight-color: rgba(0, 0, 0, 0)
-    &:hover
-      background: url("/images/close-btn-hover.svg") left center no-repeat
-      filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=80)
-    @include susy-breakpoint($bp-minimum, $medium)
-      display: none
   .logo
     @include susy-breakpoint ($bp-medium)
       display: none
@@ -197,14 +204,18 @@ img
       text-shadow: 0px 0px 1px #9A9A9A
     .small
       font-size: 26px
-      left: 61px
+      left: 30px
       position: absolute
       top: 20px
+      @include susy-breakpoint($bp-minimum)
+        left: 89px
     .big
       font-size: 34px
-      left: 82px
+      left: 0px
       position: absolute
-      top: 20px
+      top: 21px
+      @include susy-breakpoint($bp-minimum)
+        left: 60px
 
 .loading-spinner
   font-size: 200px
