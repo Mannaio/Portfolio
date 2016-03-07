@@ -2,7 +2,10 @@
 
 .github
 	font-family: $Khula-font
+	text-align: center
 	@include container
+	@include susy-breakpoint($bp-small-2)
+		text-align: left
 	&__profile,
 	&__activity
 		@include susy-breakpoint($bp-small)
@@ -33,6 +36,10 @@
 		&--tags
 			li
 				margin-right: 5px
+    h1
+	    text-align: center
+	    @include susy-breakpoint($bp-small-2)
+	        text-align: left
 
 .stream
 	font-family: $Khula-font
@@ -40,31 +47,50 @@
 	&__events,
 	&__repos,
 	&__git,
+		text-align: center
 	&__personal
 		@include span(10 of 10)
 		@include susy-breakpoint($bp-small-1)
-			@include span(3 of 10)
+			// @include span(5 of 10)
 		@include susy-breakpoint($bp-small-2)
-			@include span(3 of 10)
-	&__git
+			@include span(5 of 10)
+	&__repos
 		@include susy-breakpoint($bp-small-1)
-			@include span(3 of 10)
+			// @include span(3 of 10)
 		@include susy-breakpoint($bp-small-2)
 			@include span(3 of 10)
-	&__repos,
-	&__events
+			text-align: left
 		&--repo,
+			width: 50%
+			float: left
+			@include susy-breakpoint($bp-small-2)
+				width: 100%
 		&--event
 			margin-bottom: 10px
+			float: left
+			width: 50%
+			white-space: nowrap
+			overflow: hidden
+			@include susy-breakpoint($bp-minimum)
+				width: 50%
 			a
 				display: block
-			a.repository
-				font-size: 16px
-				text-decoration: none
-				color: $darkgray
+	&__git
+		@include susy-breakpoint($bp-small-1)
+			// @include span(2 of 10)
+		@include susy-breakpoint($bp-small-2)
+			@include span(2 of 10)
+	&__events
+		text-align: center
+		@include susy-breakpoint($bp-small-2)
+			@include span(5 of 10)
+	a.repository
+		font-size: 16px
+		text-decoration: none
+		color: $darkgray
 	&__info
 		border-left: none
-		@include susy-breakpoint($bp-small-1)
+		@include susy-breakpoint($bp-small-2)
 			border-left: 1px solid $lightgray
 			margin-top: 25px
 			margin-left: 10px
@@ -74,13 +100,16 @@
 			position: relative
 			margin-bottom: 15px
 			@include susy-breakpoint($bp-small-1)
-				width: 26%
+				display: inline-table
+				width: 48%
+			@include susy-breakpoint($bp-small-2)
+				width: 100%
 			.number,
 			.info,
 			.location
 				font-size: 18px
 				margin-left: 3px
-				@include susy-breakpoint($bp-small-1)
+				@include susy-breakpoint($bp-small-2)
 					margin-left: 20px
 			.number
 				font-size: 16px
@@ -93,7 +122,7 @@
 			.circle
 				@include circle
 				display: none
-				@include susy-breakpoint($bp-small-1)
+				@include susy-breakpoint($bp-small-2)
 					display: block
 			.element
 				display: none
@@ -120,11 +149,8 @@
 						pointer-events: none
 						opacity: 0
 						animation: sonarWave 2s linear infinite
-				@include susy-breakpoint($bp-small-1)
+				@include susy-breakpoint($bp-small-2)
 					display: block
-			@include susy-breakpoint($bp-small-1)
-				display: block
-				width: auto
 
 
 @keyframes sonarWave 

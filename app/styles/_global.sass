@@ -12,6 +12,8 @@ img
   font-size: 14px
   font-weight: lighter
   color: $lightgray
+  text-overflow: ellipsis
+  overflow: hidden
 
 .location
   font-size: 12px
@@ -47,6 +49,9 @@ img
   border: 1px solid $orange
   font-size: 12px
   padding: 5px
+  display: none
+  @include susy-breakpoint($bp-minimum)
+    display: block
 
 .white
   color: $white 
@@ -219,8 +224,8 @@ img
 
 .loading-spinner
   font-size: 200px
-  margin-left: 35%
+  margin-left: 25%
   margin-top: 15px
-  width: 175px
+  // width: 175px
   height: 100vh
 

@@ -59,7 +59,7 @@ var IndexRoute = Ember.Route.extend({
                 Ember.$.ajax(eventsAct, {
                     success: function(events) {
                         var result = [];
-                        events.slice(0,10).filter(function(event) {
+                        events.slice(0,25).filter(function(event) {
                     return event.type === 'PushEvent';
                     }).forEach(function(item){
                         var repoUrl = 'https://github.com/' + item.repo.name;
