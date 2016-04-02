@@ -15,6 +15,16 @@
         @include span(4 of 12)
     @include susy-breakpoint($bp-minimum)
         @include span(3 of 12)
+  &__alert
+    text-align: center
+    border: 1px solid $orange
+    font-size: 12px
+    padding: 5px
+    display: none
+    @include susy-breakpoint($bp-minimum)
+      display: block
+      @include span(97.3%)
+
   &__cover
     position: absolute
     top: -2px

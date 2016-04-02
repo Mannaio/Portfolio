@@ -36,7 +36,7 @@ var IndexRoute = Ember.Route.extend({
                         // var repos;
                         // repos = this.get('repos').slice(0, 2)
                         var result = [];
-                        repos.slice(0,5).map(function(repo) {
+                        repos.slice(0,9).map(function(repo) {
                             result.push(store.createRecord('repo', {
                                 created_at: repo.created_at,
                                 html_url: repo.html_url,
@@ -59,7 +59,7 @@ var IndexRoute = Ember.Route.extend({
                 Ember.$.ajax(eventsAct, {
                     success: function(events) {
                         var result = [];
-                        events.slice(0,25).filter(function(event) {
+                        events.slice(0,30).filter(function(event) {
                     return event.type === 'PushEvent';
                     }).forEach(function(item){
                         var repoUrl = 'https://github.com/' + item.repo.name;

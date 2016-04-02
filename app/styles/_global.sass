@@ -44,15 +44,6 @@ img
     i
       color: $darkgray
 
-.alert
-  text-align: center
-  border: 1px solid $orange
-  font-size: 12px
-  padding: 5px
-  display: none
-  @include susy-breakpoint($bp-minimum)
-    display: block
-
 .white
   color: $white 
 
@@ -126,6 +117,7 @@ img
       display: none
   &__button
     position: absolute
+    left: 10px
     @include span(2 of 16)
   &__button-open
     display: block
@@ -230,6 +222,15 @@ img
       top: 21px
       @include susy-breakpoint($bp-minimum)
         left: 60px
+
+.avatar 
+  height: 80px
+  width: 80px
+  display: block
+  img
+    border-radius: 50%
+    padding: 5px
+    border: 1px solid #dddddd
 
 .loading-spinner
   font-size: 200px
