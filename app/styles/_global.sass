@@ -90,6 +90,7 @@ img
   @include transition(all 0.1s ease)
   .header__button-close
     display: none
+    text-align: center
   &.open 
     transform: translate($off-canvas-width-1)
     -webkit-transform: translate($off-canvas-width-1); /* Ch <36, Saf 5.1+, iOS < 9.2, An =<4.4.4 */
@@ -111,33 +112,41 @@ img
     @include span(16 of 16)
 
 .header
-  @include span(16 nest)
-    padding-left: gutter(15)
-    height: 40px
+  @include span(16)
+  padding-left: gutter(10)
+  height: 40px
+  float: none
+  @include susy-breakpoint($bp-minimum)
+    height: 20px
+  h1
+    display: block
+    letter-spacing: 0.1em
+    text-align: center
     @include susy-breakpoint($bp-minimum)
-      height: 20px
+      display: none
   &__button
+    position: absolute
     @include span(2 of 16)
   &__button-open
     display: block
-    height: 2.25em
+    height: 2em
     background: url("/images/menu.svg") left center no-repeat
     background-size: 1.475em 2em
     overflow: hidden
     white-space: nowrap
     text-indent: 100%
-    filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=70)
-    opacity: 0.6
+    filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=80)
+    opacity: 0.8
     -webkit-tap-highlight-color: rgba(0, 0, 0, 0)
     @include susy-breakpoint($bp-minimum, $medium)
       display: none
     &:hover
-      opacity: 0.8
-      filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=80)
+      opacity: 1
+      filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=99)
   &__button-close
     position: absolute
-    top: 2px
-    left: 2px
+    top: -5px
+    left: -2px
     width: 1.925em
     height: 2.2em
     padding: 0
@@ -146,7 +155,7 @@ img
     background: url("/images/close-btn.svg") left center no-repeat
     overflow: hidden
     white-space: nowrap
-    text-indent: 100%
+    text-indent: 200%
     filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=60)
     opacity: 0.8
     -webkit-tap-highlight-color: rgba(0, 0, 0, 0)

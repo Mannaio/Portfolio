@@ -3,13 +3,13 @@
 .github
 	font-family: $Khula-font
 	text-align: center
-	@include container
 	@include susy-breakpoint($bp-small-2)
 		text-align: left
 	&__profile,
 	&__activity
+		margin-left: gutter(0px)
 		@include susy-breakpoint($bp-small)
-			@include span(12 of 12)
+			@include span(12 of 12 no-gutters)
 	&__activity,
 		@include susy-breakpoint($bp-small-1)
 		    @include span(4 of 12)
@@ -48,15 +48,12 @@
 	&__repos,
 	&__git,
 		text-align: center
+		margin-left: gutter(0px) !important
 	&__personal
 		@include span(10 of 10)
-		@include susy-breakpoint($bp-small-1)
-			// @include span(5 of 10)
 		@include susy-breakpoint($bp-small-2)
 			@include span(5 of 10)
 	&__repos
-		@include susy-breakpoint($bp-small-1)
-			// @include span(3 of 10)
 		@include susy-breakpoint($bp-small-2)
 			@include span(3 of 10)
 			text-align: left
@@ -76,10 +73,8 @@
 			a
 				display: block
 	&__git
-		@include susy-breakpoint($bp-small-1)
-			// @include span(2 of 10)
 		@include susy-breakpoint($bp-small-2)
-			@include span(2 of 10)
+			@include span(2 of 10 n)
 	&__events
 		text-align: center
 		@include susy-breakpoint($bp-small-2)

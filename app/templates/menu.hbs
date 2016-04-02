@@ -1,4 +1,8 @@
-{{gears-animation}}
+<div class="header">
+    <div class="header__button">
+        <a class="header__button-close" {{action 'showMenu'}}>Close Menu</a>
+    </div>
+</div>
 <header>
     <ul class="logo">
         <li class="logo__music">
@@ -27,9 +31,6 @@
         <li class="nav__list__item">
             {{#link-to 'photography' 'photography' class="nav__link"}}Photography{{/link-to}}
         </li>
-{{!--         <li class="nav__list__item">
-            {{#link-to 'graphic' 'graphic' class="nav__link"}}Graphic{{/link-to}}
-        </li> --}}
     </ul>
 </nav>
 

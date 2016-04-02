@@ -6,6 +6,7 @@ var ApplicationRoute = Ember.Route.extend({
         return this.render('menu', {
             into: 'application',
             outlet: 'menu',
+            controller: 'application'
         });
     },
     beforeModel: function() {
