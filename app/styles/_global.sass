@@ -30,7 +30,8 @@ img
   display: inline-block
   background: $lightblue
   padding: 0px 5px
-  height: 14px
+  height: 15px
+  vertical-align: middle
 
 .social-links
   @extend .info 
@@ -113,6 +114,7 @@ img
     display: block
     letter-spacing: 0.1em
     text-align: center
+    margin-top: 5px
     @include susy-breakpoint($bp-minimum)
       display: none
   &__button
@@ -158,7 +160,7 @@ img
       filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=80)
 .sidebar 
   @include span(2 of 16 first)
-  max-width: 200px
+  max-width: 130px
   position: fixed
   top: 0
   bottom: 0
@@ -227,6 +229,7 @@ img
   height: 80px
   width: 80px
   display: block
+  margin-left: 5px
   img
     border-radius: 50%
     padding: 5px
