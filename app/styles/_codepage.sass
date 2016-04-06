@@ -43,26 +43,15 @@
 		@include susy-breakpoint($bp-small-2)
 			@include span(3 of 10)
 			text-align: left
-		&--repo,
-			width: 50%
-			float: left
+		&--repo
 			@include susy-breakpoint($bp-small-2)
 				width: 100%
 		&--event
 			margin-bottom: 10px
-			float: left
-			width: 50%
-			white-space: nowrap
-			overflow: hidden
-			@include susy-breakpoint($bp-minimum)
-				width: 50%
-			a
-				display: block
 	&__git
 		@include susy-breakpoint($bp-small-2)
 			@include span(2 of 10 n)
 	&__events
-		text-align: center
 		@include susy-breakpoint($bp-small-2)
 			@include span(5 of 10)
 	a.repository

@@ -69,6 +69,7 @@ var IndexRoute = Ember.Route.extend({
                                 name: item.repo.name,
                                 date: item.created_at,
                                 message: commit.message,
+                                branch: item.payload.ref,
                                 commitUrl: repoUrl + '/commit/' + commit.sha,
                                 repositoryUrl: repoUrl
                             }));

@@ -126,9 +126,8 @@
 				<h2>Latest commits</h2>
 	          	{{#each model.commits}}
 	          		<div class="stream stream__repos--event">
-		            	<a class="repository" target="_blank" href="{{this.repositoryUrl}}">{{this.name}}</a>
-						<a class="info"target="_blank" href="{{this.commitUrl}}">{{this.message}}</a>
-		            	<p class="location">{{format-date this.date}}</p>
+			            <p>Pushed <a class="info">{{this.branch}}</a> at <a class="info" target="_blank" href="{{this.repositoryUrl}}">{{this.name}}</a></p>
+						<p><a class="info" target="_blank" href="{{this.commitUrl}}">{{this.message}}</a> <span class="location">{{format-date this.date}}</span></p>
 		            </div>
 	        	{{/each}}
 	        </div>
