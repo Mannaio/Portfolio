@@ -5,6 +5,7 @@ var PlayerController = Ember.Controller.extend({
     favoriteSortProperties: ['created_at:desc'],
     sortedFavorites: Ember.computed.alias('favorites'),
     formattedArtwork: Ember.computed('currentFavorite.artwork_url', function() {
+        debugger
         var splitURL, url;
         if (this.get('currentFavorite.artwork_url')) {
             url = this.get('currentFavorite.artwork_url');

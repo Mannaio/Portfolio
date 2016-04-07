@@ -64,12 +64,14 @@ var IndexRoute = Ember.Route.extend({
                     }).forEach(function(item){
                         var repoUrl = 'https://github.com/' + item.repo.name;
                         var authorUrl = 'https://github.com/' + item.actor.login;
+                        var branchUrl = 'https://github.com/' + item.repo.name +'/' + 'tree/' + item.payload.ref;
                         item.payload.commits.map(function(commit){
                             result.push(store.createRecord('commit', {
                                 name: item.repo.name,
                                 date: item.created_at,
                                 message: commit.message,
                                 branch: item.payload.ref,
+                                branchlink: branchUrl,
                                 commitUrl: repoUrl + '/commit/' + commit.sha,
                                 repositoryUrl: repoUrl
                             }));
@@ -95,7 +97,6 @@ var IndexRoute = Ember.Route.extend({
     afterModel: function() {
         this.set('visibility.isVisible', true);
     }
-
 
 });
 
