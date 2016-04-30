@@ -33,7 +33,7 @@ img
   vertical-align: middle
 
 .social-links
-  @extend .info 
+  @extend .info
   font-size: 22px
   margin-right: 10px
   @include transition(all 0.2s ease-out)
@@ -45,32 +45,32 @@ img
       color: $darkgray
 
 .white
-  color: $white 
+  color: $white
 
 .lightgray
-  color: $lightgray 
+  color: $lightgray
 
 .darkgray
-  color: $darkgray 
+  color: $darkgray
 
 .lightblue
-  color: $lightblue 
+  color: $lightblue
 
-.orange 
-  color: $orange 
+.orange
+  color: $orange
 
 .centered
   text-align: center
 
 .recommendations p
   font-size: 18px
-  
+
 .recommendations ul
   font-size: 16px
 
   li a
     border-bottom: 1px dotted #999
-    
+
     &:hover
       border-bottom: 1px dotted #333
       text-decoration: none
@@ -82,7 +82,7 @@ img
   .header__button-close
     display: none
     text-align: center
-  &.open 
+  &.open
     transform: translate($off-canvas-width-1)
     -webkit-transform: translate($off-canvas-width-1); /* Ch <36, Saf 5.1+, iOS < 9.2, An =<4.4.4 */
     -ms-transform: translate($off-canvas-width-1); /* IE 9 */
@@ -94,13 +94,15 @@ img
       display: block
     @include susy-breakpoint($bp-minimum)
       .header__button-close
-        display: none      
+        display: none
 
 
 .content
   @include span(14 of 16 last)
   @include susy-breakpoint($bp-medium, $medium)
     @include span(16 of 16)
+  @include susy-breakpoint($bp-widest)
+    margin-right: 5%
 
 .header
   @include span(16)
@@ -157,9 +159,9 @@ img
     &:hover
       background: url("/images/close-btn-hover.svg") left center no-repeat
       filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=80)
-.sidebar 
+.sidebar
   @include span(2 of 16 first)
-  max-width: 130px
+  max-width: 120px
   position: fixed
   top: 0
   bottom: 0
@@ -167,6 +169,7 @@ img
   border-right: 5px double $lightgray
   border-width: 3px
   padding: 5px
+  text-align: center
   @include susy-breakpoint($bp-medium, $medium)
     left: -150px
     width: 125px
@@ -197,7 +200,7 @@ img
         color: $darkgray
     &__photography
       span
-        color: $orange  
+        color: $orange
 
   .gears
     display: none
@@ -224,11 +227,11 @@ img
       @include susy-breakpoint($bp-minimum)
         left: 60px
 
-.avatar 
+.avatar
   height: 80px
   width: 80px
   display: block
-  margin-left: 5px
+  margin-left: 7px
   img
     border-radius: 50%
     padding: 5px
@@ -240,4 +243,3 @@ img
   margin-top: 15px
   // width: 175px
   height: 100vh
-
