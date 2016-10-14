@@ -28,7 +28,7 @@ var MusicRoute = Ember.Route.extend({
         this.controllerFor('application').set('artistName', artist);
 
         return new Ember.RSVP.Promise(function(resolve, reject) {
-            return SC.get("/users/" + 'mannaio' + "/favorites", {limit: 40 }, function(favorites) {
+            return SC.get("/users/" + 'mannaio' + "/favorites", {limit: 200 }, function(favorites) {
                 if (favorites.length) {
                     self.resetStore();
                     favorites.toArray().forEach(function(item) {
@@ -37,7 +37,7 @@ var MusicRoute = Ember.Route.extend({
                         ret.push(favorite);
                         favorite.user = self.createUser(item.user);
                     });
-                    resolve(ret);                
+                    resolve(ret);
                 } else {
                   return reject(self.errorHandler(artist));
                 }

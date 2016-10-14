@@ -83,11 +83,9 @@ img
     display: none
     text-align: center
   &.open
-    transform: translate($off-canvas-width-1)
-    -webkit-transform: translate($off-canvas-width-1); /* Ch <36, Saf 5.1+, iOS < 9.2, An =<4.4.4 */
-    -ms-transform: translate($off-canvas-width-1); /* IE 9 */
+    @include translate3d($off-canvas-width-1, 0, 0)
     @include susy-breakpoint($bp-medium, $medium)
-      margin-left: 150px
+      @include translate3d($off-canvas-width-2, 0, 0)
     .header__button-open,
       display: none
     .header__button-close

@@ -11,7 +11,7 @@ var IndexRoute = Ember.Route.extend({
 
         var gituserPromise = function() {
             return Ember.$.ajax(userUrl, {
-                success: function(data) {               
+                success: function(data) {
                     return store.createRecord('gituser', {
                         name: data.name,
                         login: data.login,
@@ -50,16 +50,16 @@ var IndexRoute = Ember.Route.extend({
                     error: function(reason) {
                      reject(reason);
                     },
-                }); 
-            });            
+                });
+            });
         };
-       
+
         var gitactivitiesPromise = function() {
             return new Ember.RSVP.Promise(function (resolve, reject) {
                 Ember.$.ajax(eventsAct, {
                     success: function(events) {
                         var result = [];
-                        events.slice(0,30).filter(function(event) {
+                        events.slice(0,15).filter(function(event) {
                     return event.type === 'PushEvent';
                     }).forEach(function(item){
                         var repoUrl = 'https://github.com/' + item.repo.name;
@@ -78,14 +78,14 @@ var IndexRoute = Ember.Route.extend({
                         });
                     });
                     resolve(result);
-                  },  
+                  },
                   error: function(reason) {
                     reject(reason);
                   }
                 });
             });
         };
-        
+
         return Ember.RSVP.hash({
             gitUsers: gituserPromise(),
             repos: gitrepositoriesPromise(),
