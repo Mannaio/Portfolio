@@ -27,22 +27,22 @@ img
 .tags
   font-size: 10px
   display: inline-block
-  background: $lightblue
+  background: $white
   padding: 0px 5px
   height: 15px
   vertical-align: middle
 
 .social-links
-  @extend .info
-  font-size: 22px
+  @extend .tags
+  border: 1px solid $darkgray
+  color: $darkgray
   margin-right: 10px
+  text-decoration: none
   @include transition(all 0.2s ease-out)
-  i
-    width: auto
-    @include transition(all 0.2s ease-out)
   &:hover
-    i
-      color: $darkgray
+    background: $darkgray
+    color: $white
+
 
 .white
   color: $white
@@ -83,7 +83,7 @@ img
     display: none
     text-align: center
   &.open
-    @include translate3d($off-canvas-width-1, 0, 0)
+    transform: inherit
     @include susy-breakpoint($bp-medium, $medium)
       @include translate3d($off-canvas-width-2, 0, 0)
     .header__button-open,
@@ -107,7 +107,6 @@ img
     height: 20px
   h1
     display: block
-    letter-spacing: 0.1em
     text-align: center
     margin-top: 5px
     @include susy-breakpoint($bp-minimum)
@@ -167,6 +166,8 @@ img
   border-width: 3px
   padding: 5px
   text-align: center
+  height: 100%
+  min-height: 1200px
   @include susy-breakpoint($bp-medium, $medium)
     left: -150px
     width: 125px
