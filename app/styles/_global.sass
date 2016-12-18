@@ -1,6 +1,7 @@
 html,
 body
   background: $white
+  font-family: $Khula-font
 
 a:hover
   cursor: pointer
@@ -25,19 +26,20 @@ img
   display: inline-block
 
 .tags
+  background: $lightblue
+  color: $darkgray
   font-size: 10px
   display: inline-block
-  background: $white
   padding: 0px 5px
   height: 15px
   vertical-align: middle
-
-.social-links
-  @extend .tags
-  border: 1px solid $darkgray
-  color: $darkgray
   margin-right: 10px
   text-decoration: none
+  border: 1px solid #24e8b8
+.social-links
+  @extend .tags
+  background: $white
+  border: 1px solid $darkgray
   @include transition(all 0.2s ease-out)
   &:hover
     background: $darkgray
@@ -173,7 +175,7 @@ img
     width: 125px
   .logo
     @include susy-breakpoint ($bp-medium)
-      display: none
+    display: none
     top: 20px
     position: absolute
     margin: 0
@@ -182,7 +184,6 @@ img
     &__coding,
     &__photography
       font-size: 10px
-      font-family: $Khula-font
       text-indent: 5px
       line-height: 15px
       text-decoration: line-through

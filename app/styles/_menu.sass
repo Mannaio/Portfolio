@@ -1,7 +1,4 @@
-$Khula-font: 'Khula', sans-serif;
-
 .nav__sidebar
-  font-family: $Khula-font
   font-weight: 100
   position: absolute
   top: 0
@@ -15,12 +12,12 @@ $Khula-font: 'Khula', sans-serif;
   overflow-y: auto
   background: $white
   &__list
-    font-family: $Khula-font
     font-weight: 100
     width: 110px
     margin: 0
     padding: 0
     list-style: none
+    overflow-y: hidden
     @include susy-breakpoint($bp-minimum)
       top: 130px;
   &__link
