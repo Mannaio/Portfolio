@@ -14,8 +14,7 @@
   },
   "repository": "",
   "engines": {
-    "node": ">= 0.10.0",
-    "npm": "2.14.3"
+    "node": ">= 0.10.0"
   },
   "author": "",
   "license": "MIT",
