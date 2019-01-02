@@ -3,9 +3,6 @@
   "version": "0.0.0",
   "description": "Tommaso Villa, Italian UI and Front end Developer",
   "private": true,
-  "engines": {
-    "node": "0.10.0"
-  },
   "directories": {
     "doc": "doc",
     "test": "tests"
@@ -17,7 +14,8 @@
   },
   "repository": "",
   "engines": {
-    "node": ">= 0.10.0"
+    "node": ">= 0.10.0",
+    "npm": "2.14.3"
   },
   "author": "",
   "license": "MIT",
